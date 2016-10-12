@@ -1,0 +1,11 @@
+D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\bin\Debug\Tst.exe.config
+D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\bin\Debug\Tst.exe
+D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\bin\Debug\Tst.pdb
+D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\bin\Debug\Tst.xml
+D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.vbprojResolveAssemblyReference.cache
+D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.Form1.resources
+D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.Resources.resources
+D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.vbproj.GenerateResource.Cache
+D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.exe
+D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.xml
+D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.pdb
