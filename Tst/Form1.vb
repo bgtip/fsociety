@@ -1,7 +1,9 @@
-﻿Public Class Form1
+﻿Imports Tst.Game
 
-    Public Const SIZE As Integer = 15 ' Størrelse på spilleområde. Både vidde og høgde. I tiles
-    Public Const TILE_SIZE As Integer = 20 'Størrelse på kvar tile, i pikslar
+Public Class Form1
+
+    Public Const SIZE As Integer = 30 ' Størrelse på spilleområde. Både vidde og høgde. I tiles
+    Public Const TILE_SIZE As Integer = 10 'Størrelse på kvar tile, i pikslar
 
     'Bilda som blir brukt i spelet
     Public Const BG0IMG As String = "bg0.png"
@@ -93,7 +95,7 @@
 
         'Setter opp fargar til tilane
         tilesColor(NO_TILE) = Color.Black
-        tilesColor(SNAKE_TILE) = Color.Pink
+        'tilesColor(SNAKE_TILE) = Color.Pink
         tilesColor(APPLE_TILE) = Color.Yellow
 
         snakeColors = New Color() {Color.White, Color.Red, Color.Blue, Color.Green, Color.Pink, Color.Gray, Color.Yellow}
@@ -110,6 +112,7 @@
             For y As Integer = 0 To SIZE - 1
                 data_map(x, y) = 0
 
+                'Picturbox greier, ikkje lenger brukt
                 If PICBOXGRAPHICS Then
                     Dim p As PictureBox = New PictureBox()
                     p.Size = New Point(TILE_SIZE, TILE_SIZE)
@@ -128,6 +131,8 @@
         For i As Integer = 0 To snakeSize - 1
             snake(i) = New Point(Convert.ToInt32(Math.Round(SIZE / 2)) + i, Convert.ToInt32(Math.Round(SIZE / 2)))
         Next
+
+        speed = 100
 
         'Setter opp eplet 
         applePoint = New Point(0, 0)
@@ -308,5 +313,6 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click ' Knappen er ikkje heilt klar enno
         Button1.Enabled = False
         init()
+        Global
     End Sub
 End Class
