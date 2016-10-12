@@ -25,7 +25,7 @@ Public Class Form1
 
         If game.lost Then
             Ticker.Enabled = False
-            MsgBox("Du tapte!")
+            MsgBox("Du tapte!!!")
         End If
 
         Score.Text = "Poeng: " & game.getScore()
