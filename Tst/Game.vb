@@ -44,6 +44,9 @@
     Public snake(snakeSize) As Point
     'Kva rettning slangen har.
     Public direction As Integer
+    Public ready As Boolean
+
+
     'Intervallet som alt blir oppdatert på. I millisekund
     Public speed As Integer = 100
     Public freq As Integer = 100
@@ -53,24 +56,30 @@
 
     Public Canvas As Panel
 
+    'Variabler som blir brukt uttafor.
     Public lost As Boolean
+    Private eple As Boolean
 
     'Sjekkar om brukaren trykker på knappar
     Sub keyUpdate(ByVal sender As Object, ByVal e As KeyEventArgs)
 
-        If direction = RIGHT Or direction = LEFT Then
+        If ready And direction = RIGHT Or direction = LEFT Then
             Select Case e.KeyCode
                 Case Keys.Up
                     direction = UP
+                    ready = False
                 Case Keys.Down
                     direction = DOWN
+                    ready = False
             End Select
         Else
             Select Case e.KeyCode
                 Case Keys.Right
                     direction = RIGHT
+                    ready = False
                 Case Keys.Left
                     direction = LEFT
+                    ready = False
             End Select
         End If
     End Sub
@@ -81,6 +90,7 @@
         Canvas = cnvs
 
         lost = False
+        eple = False
 
         'Setter opp referansar til bildet i eit array. Blir brukt i picturebox grafikk greia
         tiles(NO_TILE) = BG0IMG
@@ -117,6 +127,7 @@
 
         'Setter opp slangen
         direction = LEFT
+        ready = True
         For i As Integer = 0 To snakeSize - 1
             snake(i) = New Point(Convert.ToInt32(Math.Round(SIZE / 2)) + i, Convert.ToInt32(Math.Round(SIZE / 2)))
         Next
@@ -237,9 +248,9 @@
             Array.Resize(snake, snake.Length + 1)
             snake(snake.Length - 1) = New Point(snake(snake.Length - 2).X, snake(snake.Length - 2).Y)
             snakeSize = snakeSize + 1
-
-
+            eple = True
         End If
+        ready = True
     End Sub
 
     'Setter eplet på ein ny random plass
@@ -299,6 +310,13 @@
     Public Function getScore() As Integer
 
         Return snakeSize - 3
+    End Function
+    Public Function gotApple() As Boolean
+        Dim temp As Boolean = eple
+
+        eple = False
+
+        Return temp
     End Function
 
 End Class
