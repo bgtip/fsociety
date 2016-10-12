@@ -1,3 +1,5 @@
 *.iml
 .vs/*
 Tst/obj/Debug/*
+Tst/bin/Debug/*.exe
+Tst/bin/Debug/*.pdb
