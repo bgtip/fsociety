@@ -7,7 +7,7 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Tst", "Tst\Tst.vbproj", "{B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9A4B29FC-F7DF-4E99-973C-8D4461D4F5FD}"
 	ProjectSection(SolutionItems) = preProject
-		GlobalVariables.vb = GlobalVariables.vb
+		Tst\Game.vb = Tst\Game.vb
 	EndProjectSection
 EndProject
 Global
