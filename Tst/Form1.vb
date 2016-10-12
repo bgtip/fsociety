@@ -28,7 +28,11 @@ Public Class Form1
             My.Computer.Audio.Play("game2.wav",
         AudioPlayMode.Background)
             MsgBox("Du tapte!!!")
+        End If
 
+        If game.gotApple() Then
+            My.Computer.Audio.Play("game1.wav",
+        AudioPlayMode.Background)
         End If
 
         Score.Text = "Poeng: " & game.getScore()
