@@ -34,6 +34,12 @@
     Public tiles(3) As String
     Public tilesimg(3) As Bitmap
     Public tilesColor(3) As Color
+    Public snakeColors As Color()
+
+    Public Const TRIPPY As Integer = 1
+
+    Public mode As Integer
+    Public modeArray As Integer
 
     'Slangedataen. Eit array av punkt. Både x og y
     Public snake(snakeSize) As Point
@@ -78,6 +84,8 @@
         tiles(SNAKE_TILE) = BG1IMG
         tiles(APPLE_TILE) = BG2IMG
 
+        mode = 0
+
         'Setter opp referansar til bildet i eit array
         tilesimg(NO_TILE) = New Bitmap(BG0IMG)
         tilesimg(SNAKE_TILE) = New Bitmap(BG1IMG)
@@ -87,6 +95,8 @@
         tilesColor(NO_TILE) = Color.Black
         tilesColor(SNAKE_TILE) = Color.Pink
         tilesColor(APPLE_TILE) = Color.Yellow
+
+        snakeColors = New Color() {Color.White, Color.Red, Color.Blue, Color.Green, Color.Pink, Color.Gray, Color.Yellow}
 
         'Setter opp til picturebox-greia
         If PICBOXGRAPHICS Then
@@ -157,7 +167,14 @@
                         'g.DrawImage(tilesimg(data_map(x, y)), New Point(x * TILE_SIZE, y * TILE_SIZE))
                         If data_map(x, y) <> 0 Then
                             Dim rect As Rectangle = New Rectangle(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
-                            Dim p As Brush = New SolidBrush(tilesColor(data_map(x, y)))
+
+                            Dim p As Brush
+                            If data_map(x, y) = APPLE_TILE Then
+                                p = New SolidBrush(tilesColor(APPLE_TILE))
+                            Else
+                                p = New SolidBrush(snakeColors(Convert.ToInt16(Rnd() * (snakeColors.Length - 1))))
+                            End If
+
                             g.FillRectangle(p, rect)
                         End If
                     Next
@@ -220,11 +237,14 @@
             data_map(snake(i).X, snake(i).Y) = SNAKE_TILE
         Next
 
+        'Om snake spiser eple
         If snake(0).Equals(applePoint) Then
             setNewApple()
             Array.Resize(snake, snake.Length + 1)
             snake(snake.Length - 1) = New Point(snake(snake.Length - 2).X, snake(snake.Length - 2).Y)
             snakeSize = snakeSize + 1
+
+
         End If
     End Sub
 
@@ -255,7 +275,7 @@
     Public Sub Lose()
         Ticker.Enabled = False
         MsgBox("Du tapte!")
-        'Button1.Enabled = True
+        Button1.Enabled = True
     End Sub
 
     'Funksjonen som håndterar oppdatering av spelet
@@ -275,6 +295,13 @@
         Next
 
         Ticker.Interval = speed
+
+        Select Case mode
+            Case 0
+
+            Case TRIPPY
+                Ticker.Interval = Convert.ToInt16(Rnd() * 200)
+        End Select
     End Sub
 
     'Når brukaren klikkar på reset knappen. Resetter spelet

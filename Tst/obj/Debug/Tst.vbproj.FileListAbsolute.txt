@@ -9,3 +9,14 @@ D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug
 D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.exe
 D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.xml
 D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.pdb
+C:\Users\Eier\Desktop\fsociety\Tst\bin\Debug\Tst.exe.config
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.exe
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.xml
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.pdb
+C:\Users\Eier\Desktop\fsociety\Tst\bin\Debug\Tst.exe
+C:\Users\Eier\Desktop\fsociety\Tst\bin\Debug\Tst.pdb
+C:\Users\Eier\Desktop\fsociety\Tst\bin\Debug\Tst.xml
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.vbprojResolveAssemblyReference.cache
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.Form1.resources
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.Resources.resources
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.vbproj.GenerateResource.Cache
