@@ -1,6 +1,4 @@
-﻿Imports Microsoft.VisualBasic
-
-Public Class Game
+﻿Public Class Game
     Public Const SIZE As Integer = 30 ' Størrelse på spilleområde. Både vidde og høgde. I tiles
     Public Const TILE_SIZE As Integer = 10 'Størrelse på kvar tile, i pikslar
 
@@ -48,18 +46,17 @@ Public Class Game
     Public direction As Integer
     'Intervallet som alt blir oppdatert på. I millisekund
     Public speed As Integer = 100
+    Public freq As Integer = 100
 
     'Punktet der 'eplet' er på
     Public applePoint As Point
 
-    'Funskjonen som køyrer da spelet startar
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        init()
+    Public Canvas As Panel
 
-    End Sub
+    Public lost As Boolean
 
     'Sjekkar om brukaren trykker på knappar
-    Sub Form1_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
+    Sub keyUpdate(ByVal sender As Object, ByVal e As KeyEventArgs)
 
         If direction = RIGHT Or direction = LEFT Then
             Select Case e.KeyCode
@@ -79,7 +76,12 @@ Public Class Game
     End Sub
 
     'Startar spelet
-    Public Sub init()
+    Public Sub init(cnvs As Panel, Ticker As Timer)
+
+        Canvas = cnvs
+
+        lost = False
+
         'Setter opp referansar til bildet i eit array. Blir brukt i picturebox grafikk greia
         tiles(NO_TILE) = BG0IMG
         tiles(SNAKE_TILE) = BG1IMG
@@ -110,18 +112,6 @@ Public Class Game
         For x As Integer = 0 To SIZE - 1
             For y As Integer = 0 To SIZE - 1
                 data_map(x, y) = 0
-
-                'Picturbox greier, ikkje lenger brukt
-                If PICBOXGRAPHICS Then
-                    Dim p As PictureBox = New PictureBox()
-                    p.Size = New Point(TILE_SIZE, TILE_SIZE)
-                    p.Location = New Point(TILE_SIZE * x, TILE_SIZE * y)
-                    p.ImageLocation = tiles(NO_TILE)
-
-                    p.Visible = True
-                    graphic_map(x, y) = p
-                    Me.Controls.Add(p)
-                End If
             Next
         Next
 
@@ -277,40 +267,38 @@ Public Class Game
 
     'Spelaren tapar
     Public Sub Lose()
-        Ticker.Enabled = False
-        MsgBox("Du tapte!")
-        Button1.Enabled = True
+
     End Sub
 
     'Funksjonen som håndterar oppdatering av spelet
-    Private Sub Tick(sender As Object, e As EventArgs) Handles Ticker.Tick
+    Public Sub Tick(sender As Object, e As EventArgs)
         ClearMap()
         UpdateSnake()
         UpdateMap()
 
         'Viser poengsummen
-        Score.Text = "Poeng: " & snakeSize - 3
+        'Score.Text = "Poeng: " & snakeSize - 3
 
         'Sjekkar om slangen kolliderar med seg sjølv
         For i As Integer = 1 To snakeSize - 1
             If snake(0) = snake(i) Then
-                Lose()
+                lost = True
             End If
         Next
 
-        Ticker.Interval = speed
+        freq = speed
 
         Select Case mode
             Case 0
 
             Case TRIPPY
-                Ticker.Interval = Convert.ToInt16(Rnd() * 200)
+                freq = Convert.ToInt16(Rnd() * 200)
         End Select
     End Sub
 
-    'Når brukaren klikkar på reset knappen. Resetter spelet
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click ' Knappen er ikkje heilt klar enno
-        Button1.Enabled = False
-        init()
-    End Sub
+    Public Function getScore() As Integer
+
+        Return snakeSize - 3
+    End Function
+
 End Class
