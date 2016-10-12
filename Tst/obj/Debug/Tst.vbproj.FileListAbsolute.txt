@@ -42,3 +42,4 @@ C:\fsociety\Tst\obj\Debug\Tst.vbprojResolveAssemblyReference.cache
 C:\fsociety\Tst\obj\Debug\Tst.Form1.resources
 C:\fsociety\Tst\obj\Debug\Tst.Resources.resources
 C:\fsociety\Tst\obj\Debug\Tst.vbproj.GenerateResource.Cache
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.Form2.resources

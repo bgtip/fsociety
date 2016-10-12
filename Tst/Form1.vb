@@ -7,6 +7,7 @@ Public Class Form1
 
     'Funskjonen som køyrer da spelet startar
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         game = New Game()
 
         game.init(Canvas, Ticker)
@@ -46,4 +47,10 @@ Public Class Form1
         'init(Canvas)
 
     End Sub
+    Private Sub onClose(sender As Object, e As EventArgs) Handles Me.Closed ' Knappen er ikkje heilt klar enno
+        Button1.Enabled = False
+        'init(Canvas)
+        Form2.ActiveForm.Visible = True
+    End Sub
+
 End Class
