@@ -31,3 +31,14 @@ C:\Users\Eier\Dropbox\Dokumentar\fsociety\Tst\obj\Debug\Tst.vbproj.GenerateResou
 C:\Users\Eier\Dropbox\Dokumentar\fsociety\Tst\bin\Debug\Tst.exe
 C:\Users\Eier\Dropbox\Dokumentar\fsociety\Tst\bin\Debug\Tst.pdb
 C:\Users\Eier\Dropbox\Dokumentar\fsociety\Tst\bin\Debug\Tst.xml
+C:\fsociety\Tst\bin\Debug\Tst.exe.config
+C:\fsociety\Tst\obj\Debug\Tst.exe
+C:\fsociety\Tst\obj\Debug\Tst.xml
+C:\fsociety\Tst\obj\Debug\Tst.pdb
+C:\fsociety\Tst\bin\Debug\Tst.exe
+C:\fsociety\Tst\bin\Debug\Tst.pdb
+C:\fsociety\Tst\bin\Debug\Tst.xml
+C:\fsociety\Tst\obj\Debug\Tst.vbprojResolveAssemblyReference.cache
+C:\fsociety\Tst\obj\Debug\Tst.Form1.resources
+C:\fsociety\Tst\obj\Debug\Tst.Resources.resources
+C:\fsociety\Tst\obj\Debug\Tst.vbproj.GenerateResource.Cache

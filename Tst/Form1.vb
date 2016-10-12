@@ -25,7 +25,10 @@ Public Class Form1
 
         If game.lost Then
             Ticker.Enabled = False
+            My.Computer.Audio.Play("game2.wav",
+        AudioPlayMode.Background)
             MsgBox("Du tapte!!!")
+
         End If
 
         Score.Text = "Poeng: " & game.getScore()
