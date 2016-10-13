@@ -16,6 +16,12 @@ you want to pull the newest updates if there are any
 
 git pull https://github.com/bgtip/fsociety.git
 
+if there are files you dont want to commit like Tst.exe, use 
+
+git stash
+
+to store your changed files somewhere else then pull from the repository, this should work
+
 then you want to:
 
 git commit -m [add title] -m [add message]
