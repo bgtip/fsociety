@@ -12,4 +12,10 @@
         My.Computer.Audio.Play("game-menu.wav",
         AudioPlayMode.BackgroundLoop)
     End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        Form3.Show()
+        Me.Visible = False
+        My.Computer.Audio.Stop()
+    End Sub
 End Class
