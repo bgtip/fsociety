@@ -1,61 +1,11 @@
-D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\bin\Debug\Tst.exe.config
-D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\bin\Debug\Tst.exe
-D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\bin\Debug\Tst.pdb
-D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\bin\Debug\Tst.xml
-D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.vbprojResolveAssemblyReference.cache
-D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.Form1.resources
-D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.Resources.resources
-D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.vbproj.GenerateResource.Cache
-D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.exe
-D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.xml
-D:\documents\google drive\Skule\semester1drift\Informatikk1\TA\Tst\Tst\obj\Debug\Tst.pdb
-C:\Users\Eier\Desktop\fsociety\Tst\bin\Debug\Tst.exe.config
-C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.exe
-C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.xml
-C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.pdb
-C:\Users\Eier\Desktop\fsociety\Tst\bin\Debug\Tst.exe
-C:\Users\Eier\Desktop\fsociety\Tst\bin\Debug\Tst.pdb
-C:\Users\Eier\Desktop\fsociety\Tst\bin\Debug\Tst.xml
-C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.vbprojResolveAssemblyReference.cache
-C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.Form1.resources
-C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.Resources.resources
-C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.vbproj.GenerateResource.Cache
-C:\Users\Eier\Dropbox\Dokumentar\fsociety\Tst\bin\Debug\Tst.exe.config
-C:\Users\Eier\Dropbox\Dokumentar\fsociety\Tst\obj\Debug\Tst.exe
-C:\Users\Eier\Dropbox\Dokumentar\fsociety\Tst\obj\Debug\Tst.xml
-C:\Users\Eier\Dropbox\Dokumentar\fsociety\Tst\obj\Debug\Tst.pdb
-C:\Users\Eier\Dropbox\Dokumentar\fsociety\Tst\obj\Debug\Tst.vbprojResolveAssemblyReference.cache
-C:\Users\Eier\Dropbox\Dokumentar\fsociety\Tst\obj\Debug\Tst.Form1.resources
-C:\Users\Eier\Dropbox\Dokumentar\fsociety\Tst\obj\Debug\Tst.Resources.resources
-C:\Users\Eier\Dropbox\Dokumentar\fsociety\Tst\obj\Debug\Tst.vbproj.GenerateResource.Cache
-C:\Users\Eier\Dropbox\Dokumentar\fsociety\Tst\bin\Debug\Tst.exe
-C:\Users\Eier\Dropbox\Dokumentar\fsociety\Tst\bin\Debug\Tst.pdb
-C:\Users\Eier\Dropbox\Dokumentar\fsociety\Tst\bin\Debug\Tst.xml
 C:\fsociety\Tst\bin\Debug\Tst.exe.config
-C:\fsociety\Tst\obj\Debug\Tst.exe
-C:\fsociety\Tst\obj\Debug\Tst.xml
-C:\fsociety\Tst\obj\Debug\Tst.pdb
 C:\fsociety\Tst\bin\Debug\Tst.exe
 C:\fsociety\Tst\bin\Debug\Tst.pdb
 C:\fsociety\Tst\bin\Debug\Tst.xml
-C:\fsociety\Tst\obj\Debug\Tst.vbprojResolveAssemblyReference.cache
 C:\fsociety\Tst\obj\Debug\Tst.Form1.resources
+C:\fsociety\Tst\obj\Debug\Tst.Form2.resources
 C:\fsociety\Tst\obj\Debug\Tst.Resources.resources
 C:\fsociety\Tst\obj\Debug\Tst.vbproj.GenerateResource.Cache
-C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.Form2.resources
-<<<<<<< HEAD
-C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\bin\Debug\Tst.exe.config
-C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\bin\Debug\Tst.exe
-C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\bin\Debug\Tst.pdb
-C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\bin\Debug\Tst.xml
-C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.vbprojResolveAssemblyReference.cache
-C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.Form1.resources
-C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.Form2.resources
-C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.Resources.resources
-C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.vbproj.GenerateResource.Cache
-C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.exe
-C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.xml
-C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.pdb
-=======
-C:\fsociety\Tst\obj\Debug\Tst.Form2.resources
->>>>>>> ed79ce7205ccce62acb3274617f3375552d9265e
+C:\fsociety\Tst\obj\Debug\Tst.exe
+C:\fsociety\Tst\obj\Debug\Tst.xml
+C:\fsociety\Tst\obj\Debug\Tst.pdb
