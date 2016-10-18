@@ -43,3 +43,15 @@ C:\fsociety\Tst\obj\Debug\Tst.Form1.resources
 C:\fsociety\Tst\obj\Debug\Tst.Resources.resources
 C:\fsociety\Tst\obj\Debug\Tst.vbproj.GenerateResource.Cache
 C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.Form2.resources
+C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\bin\Debug\Tst.exe.config
+C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\bin\Debug\Tst.exe
+C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\bin\Debug\Tst.pdb
+C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\bin\Debug\Tst.xml
+C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.vbprojResolveAssemblyReference.cache
+C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.Form1.resources
+C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.Form2.resources
+C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.Resources.resources
+C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.vbproj.GenerateResource.Cache
+C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.exe
+C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.xml
+C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.pdb
