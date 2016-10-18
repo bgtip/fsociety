@@ -43,6 +43,7 @@ C:\fsociety\Tst\obj\Debug\Tst.Form1.resources
 C:\fsociety\Tst\obj\Debug\Tst.Resources.resources
 C:\fsociety\Tst\obj\Debug\Tst.vbproj.GenerateResource.Cache
 C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.Form2.resources
+<<<<<<< HEAD
 C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\bin\Debug\Tst.exe.config
 C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\bin\Debug\Tst.exe
 C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\bin\Debug\Tst.pdb
@@ -55,3 +56,6 @@ C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.vbproj.GenerateResour
 C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.exe
 C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.xml
 C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.pdb
+=======
+C:\fsociety\Tst\obj\Debug\Tst.Form2.resources
+>>>>>>> ed79ce7205ccce62acb3274617f3375552d9265e
