@@ -66,6 +66,8 @@
     'Brukes for å forhindre at to knapper trykkes samtidig (aka krasj)
     Dim ko As Queue = New Queue()
 
+    Dim keyState
+
     'Sjekkar om brukaren trykker på knappar
     Sub keyUpdate(ByVal sender As Object, ByVal e As KeyEventArgs)
 
@@ -73,19 +75,19 @@
             Select Case e.KeyCode
                 Case Keys.Up
                     ready = False
-                    ko.Enqueue(Keys.Up)
+                    keyState = e.KeyCode
                 Case Keys.Down
                     ready = False
-                    ko.Enqueue(Keys.Down)
+                    keyState = e.KeyCode
             End Select
         ElseIf ready And direction = UP Or direction = DOWN Then
             Select Case e.KeyCode
                 Case Keys.Right
                     ready = False
-                    ko.Enqueue(Keys.Right)
+                    keyState = e.KeyCode
                 Case Keys.Left
                     ready = False
-                    ko.Enqueue(Keys.Left)
+                    keyState = e.KeyCode
             End Select
         End If
     End Sub
@@ -285,27 +287,23 @@
         ClearMap()
         UpdateSnake()
         UpdateMap()
-        If ko.Count > 0 Then
-            If direction = RIGHT Or direction = LEFT Then
-                Select Case ko.Dequeue()
 
+        If direction = RIGHT Or direction = LEFT Then
+                Select Case keyState
                     Case Keys.Up
                         direction = UP
                     Case Keys.Down
                         direction = DOWN
                 End Select
             ElseIf direction = UP Or direction = DOWN Then
-                Select Case ko.Dequeue()
+                Select Case keyState
                     Case Keys.Right
                         direction = RIGHT
                     Case Keys.Left
                         direction = LEFT
-
-
                 End Select
             End If
 
-        End If
         ko.Clear()
         'Viser poengsummen
         'Score.Text = "Poeng: " & snakeSize - 3
