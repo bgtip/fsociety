@@ -62,33 +62,35 @@
     Public lost As Boolean
     Private eple As Boolean
 
+    'Brukes for å forhindre at to knapper trykkes samtidig (aka krasj)
+    Dim ko As Queue = New Queue()
+
     'Sjekkar om brukaren trykker på knappar
     Sub keyUpdate(ByVal sender As Object, ByVal e As KeyEventArgs)
 
         If ready And direction = RIGHT Or direction = LEFT Then
             Select Case e.KeyCode
                 Case Keys.Up
-                    direction = UP
                     ready = False
+                    ko.Enqueue(Keys.Up)
                 Case Keys.Down
-                    direction = DOWN
                     ready = False
+                    ko.Enqueue(Keys.Down)
             End Select
-        Else
+        ElseIf ready And direction = UP Or direction = DOWN Then
             Select Case e.KeyCode
                 Case Keys.Right
-                    direction = RIGHT
                     ready = False
+                    ko.Enqueue(Keys.Right)
                 Case Keys.Left
-                    direction = LEFT
                     ready = False
+                    ko.Enqueue(Keys.Left)
             End Select
         End If
     End Sub
 
     'Startar spelet
     Public Sub init(cnvs As Panel, Ticker As Timer)
-
         Canvas = cnvs
 
         lost = False
@@ -111,18 +113,18 @@
         'tilesColor(SNAKE_TILE) = Color.Pink
         tilesColor(APPLE_TILE) = Color.Yellow
 
-        snakeColors = New Color() {Color.White, Color.Red, Color.Blue, Color.Green, Color.Pink, Color.Gray, Color.Yellow}
+        snakeColors = New Color() {Color.White, Color.Gray}
 
         'Setter opp til picturebox-greia
         If PICBOXGRAPHICS Then
             Canvas.Visible = False
         End If
 
-        Canvas.Size = New Size(Size * TILE_SIZE, Size * TILE_SIZE)
+        Canvas.Size = New Size(SIZE * TILE_SIZE, SIZE * TILE_SIZE)
 
         'Setter opp spilleområdet.
-        For x As Integer = 0 To Size - 1
-            For y As Integer = 0 To Size - 1
+        For x As Integer = 0 To SIZE - 1
+            For y As Integer = 0 To SIZE - 1
                 data_map(x, y) = 0
             Next
         Next
@@ -131,7 +133,7 @@
         direction = LEFT
         ready = True
         For i As Integer = 0 To snakeSize - 1
-            snake(i) = New Point(Convert.ToInt32(Math.Round(Size / 2)) + i, Convert.ToInt32(Math.Round(Size / 2)))
+            snake(i) = New Point(Convert.ToInt32(Math.Round(SIZE / 2)) + i, Convert.ToInt32(Math.Round(SIZE / 2)))
         Next
 
         speed = 100
@@ -282,7 +284,28 @@
         ClearMap()
         UpdateSnake()
         UpdateMap()
+        If ko.Count > 0 Then
+            If direction = RIGHT Or direction = LEFT Then
+                Select Case ko.Dequeue()
 
+                    Case Keys.Up
+                        direction = UP
+                    Case Keys.Down
+                        direction = DOWN
+                End Select
+            ElseIf direction = UP Or direction = DOWN Then
+                Select Case ko.Dequeue()
+                    Case Keys.Right
+                        direction = RIGHT
+                    Case Keys.Left
+                        direction = LEFT
+
+
+                End Select
+            End If
+
+        End If
+        ko.Clear()
         'Viser poengsummen
         'Score.Text = "Poeng: " & snakeSize - 3
 
