@@ -22,3 +22,5 @@ C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.Form2.resources
 C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.Form3.resources
 C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.Resources.resources
 C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.vbproj.GenerateResource.Cache
+C:\fsociety\Tst\obj\Debug\Tst.vbprojResolveAssemblyReference.cache
+C:\fsociety\Tst\obj\Debug\Tst.Form3.resources

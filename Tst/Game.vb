@@ -261,20 +261,14 @@
         Dim found As Boolean = False
 
         'data_map(applePoint.X, applePoint.Y) = NO_TILE
-
-        While found = False
-            For x As Integer = 0 To Size - 1
-                For y As Integer = 0 To Size - 1
-                    If data_map(x, y) = NO_TILE And Rnd() * 1 < chance Then
-                        applePoint.X = x
-                        applePoint.Y = y
-                        found = True
+        Dim x = ((SIZE - 1) * Rnd())
+        Dim y = ((SIZE - 1) * Rnd())
+        applePoint.X = x
+        applePoint.Y = y
+        Console.WriteLine(x, y)
+        found = True
                         data_map(x, y) = APPLE_TILE
-                        Exit While
-                    End If
-                Next
-            Next
-        End While
+
 
     End Sub
 
