@@ -293,8 +293,9 @@
                     Case Keys.Up
                         direction = UP
                     Case Keys.Down
-                        direction = DOWN
-                End Select
+                    direction = DOWN
+
+            End Select
             ElseIf direction = UP Or direction = DOWN Then
                 Select Case keyState
                     Case Keys.Right
