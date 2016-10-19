@@ -33,7 +33,7 @@ Partial Class Form3
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(53, 41)
+        Me.Button1.Location = New System.Drawing.Point(87, 62)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 0
@@ -52,7 +52,7 @@ Partial Class Form3
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(507, 103)
+        Me.Label2.Location = New System.Drawing.Point(347, 103)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(55, 17)
         Me.Label2.TabIndex = 2
@@ -61,7 +61,7 @@ Partial Class Form3
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(815, 103)
+        Me.Label3.Location = New System.Drawing.Point(459, 103)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(55, 17)
         Me.Label3.TabIndex = 3
@@ -78,7 +78,7 @@ Partial Class Form3
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(510, 158)
+        Me.Button3.Location = New System.Drawing.Point(350, 158)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 5
@@ -87,7 +87,7 @@ Partial Class Form3
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(818, 157)
+        Me.Button4.Location = New System.Drawing.Point(462, 158)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 6
@@ -98,7 +98,9 @@ Partial Class Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1147, 625)
+        Me.BackgroundImage = Global.Tst.My.Resources.Resources.OptBg
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(752, 583)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)

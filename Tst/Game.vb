@@ -1,5 +1,6 @@
 ﻿Public Class Game
-    Public Const SIZE As Integer = 30 ' Størrelse på spilleområde. Både vidde og høgde. I tiles
+    'Public Const SIZE As Integer = 30 ' Størrelse på spilleområde. Både vidde og høgde. I tiles
+    Dim SIZE = Form3.SIZE2 'Størrelsen på spillområdet, satt ut i fra spillerens valg i options.
     Public Const TILE_SIZE As Integer = 10 'Størrelse på kvar tile, i pikslar
 
     'Bilda som blir brukt i spelet
@@ -23,11 +24,12 @@
 
     'Størrelsen på slangen
     Public snakeSize As Integer = 3
+    'Dim snakeSize = Form3.snakeSize2
 
     'Array på grafikkgreiene, brukar picturebox. Vanlegvis ikkje i bruk.
-    Public graphic_map(SIZE, SIZE) As PictureBox
+    Public graphic_map(Size, Size) As PictureBox
     'Array på kva tile er kor. Eit rutenett.
-    Public data_map(SIZE, SIZE) As Integer
+    Public data_map(Size, Size) As Integer
 
     'Data på bildene.
     Public tiles(3) As String
@@ -116,11 +118,11 @@
             Canvas.Visible = False
         End If
 
-        Canvas.Size = New Size(SIZE * TILE_SIZE, SIZE * TILE_SIZE)
+        Canvas.Size = New Size(Size * TILE_SIZE, Size * TILE_SIZE)
 
         'Setter opp spilleområdet.
-        For x As Integer = 0 To SIZE - 1
-            For y As Integer = 0 To SIZE - 1
+        For x As Integer = 0 To Size - 1
+            For y As Integer = 0 To Size - 1
                 data_map(x, y) = 0
             Next
         Next
@@ -129,7 +131,7 @@
         direction = LEFT
         ready = True
         For i As Integer = 0 To snakeSize - 1
-            snake(i) = New Point(Convert.ToInt32(Math.Round(SIZE / 2)) + i, Convert.ToInt32(Math.Round(SIZE / 2)))
+            snake(i) = New Point(Convert.ToInt32(Math.Round(Size / 2)) + i, Convert.ToInt32(Math.Round(Size / 2)))
         Next
 
         speed = 100
@@ -144,8 +146,8 @@
 
     'Tømmer speleområdet for alt. Gjer alle posisjonane til 0
     Public Sub ClearMap()
-        For x As Integer = 0 To SIZE - 1
-            For y As Integer = 0 To SIZE - 1
+        For x As Integer = 0 To Size - 1
+            For y As Integer = 0 To Size - 1
                 If data_map(x, y) = SNAKE_TILE Then
                     data_map(x, y) = NO_TILE
                 End If
@@ -159,16 +161,16 @@
         data_map(applePoint.X, applePoint.Y) = APPLE_TILE
 
         If PICBOXGRAPHICS Then
-            For x As Integer = 0 To SIZE - 1
-                For y As Integer = 0 To SIZE - 1
+            For x As Integer = 0 To Size - 1
+                For y As Integer = 0 To Size - 1
                     graphic_map(x, y).ImageLocation = tiles(data_map(x, y))
                 Next
             Next
         Else
             Using g As Graphics = Canvas.CreateGraphics()
                 g.Clear(tilesColor(NO_TILE))
-                For x As Integer = 0 To SIZE - 1
-                    For y As Integer = 0 To SIZE - 1
+                For x As Integer = 0 To Size - 1
+                    For y As Integer = 0 To Size - 1
                         'g.DrawImage(tilesimg(data_map(x, y)), New Point(x * TILE_SIZE, y * TILE_SIZE))
                         If data_map(x, y) <> 0 Then
                             Dim rect As Rectangle = New Rectangle(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
@@ -198,7 +200,7 @@
             temp = New Point(snake(i).X, snake(i).Y)
             If frst = True Then
                 If direction = RIGHT Then
-                    If snake(i).X < SIZE - 1 Then
+                    If snake(i).X < Size - 1 Then
                         snake(i).X += 1
                     Else
                         snake(i).X = 0
@@ -208,11 +210,11 @@
                     If snake(i).X > 0 Then
                         snake(i).X -= 1
                     Else
-                        snake(i).X = SIZE - 1
+                        snake(i).X = Size - 1
                     End If
 
                 ElseIf direction = DOWN Then
-                    If snake(i).Y < SIZE - 1 Then
+                    If snake(i).Y < Size - 1 Then
                         snake(i).Y += 1
                     Else
                         snake(i).Y = 0
@@ -222,7 +224,7 @@
                     If snake(i).Y > 0 Then
                         snake(i).Y -= 1
                     Else
-                        snake(i).Y = SIZE - 1
+                        snake(i).Y = Size - 1
                     End If
                 Else
                     Exit For
@@ -261,8 +263,8 @@
         'data_map(applePoint.X, applePoint.Y) = NO_TILE
 
         While found = False
-            For x As Integer = 0 To SIZE - 1
-                For y As Integer = 0 To SIZE - 1
+            For x As Integer = 0 To Size - 1
+                For y As Integer = 0 To Size - 1
                     If data_map(x, y) = NO_TILE And Rnd() * 1 < chance Then
                         applePoint.X = x
                         applePoint.Y = y
@@ -308,7 +310,6 @@
     End Sub
 
     Public Function getScore() As Integer
-
         Return snakeSize - 3
     End Function
     Public Function gotApple() As Boolean
