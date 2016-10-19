@@ -27,4 +27,14 @@ Public Class Form3
         Form1.Show()
         Me.Visible = False
     End Sub
+
+    Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+
+    End Sub
+
+    Private Sub OnApplicationExit(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Closing
+        Application.Exit()
+    End Sub
 End Class

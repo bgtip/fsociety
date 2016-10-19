@@ -5,6 +5,12 @@ Public Class Form1
 
     Public game As Game
 
+
+
+    Private Sub OnApplicationExit(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Closing
+        MsgBox("Thanks for playing!")
+        Application.Exit()
+    End Sub
     'Funskjonen som køyrer da spelet startar
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
