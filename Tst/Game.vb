@@ -1,7 +1,8 @@
 ﻿Public Class Game
     'Public Const SIZE As Integer = 30 ' Størrelse på spilleområde. Både vidde og høgde. I tiles
     Dim SIZE = Form3.SIZE2 'Størrelsen på spillområdet, satt ut i fra spillerens valg i options.
-    Public Const TILE_SIZE As Integer = 10 'Størrelse på kvar tile, i pikslar
+    'Public Const TILE_SIZE As Integer = 10 'Størrelse på kvar tile, i pikslar
+    Dim TILE_SIZE = Form3.TILE_SIZE2
 
     'Bilda som blir brukt i spelet
     Public Const BG0IMG As String = "bg0.png"
