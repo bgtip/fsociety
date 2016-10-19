@@ -58,6 +58,7 @@
     Public applePoint As Point
 
     Public Canvas As Panel
+    Public timer As Timer
 
     'Variabler som blir brukt uttafor.
     Public lost As Boolean
@@ -90,6 +91,13 @@
                     keyState = e.KeyCode
             End Select
         End If
+
+        'Sjekkar om pause
+        Select Case e.KeyCode
+            Case Keys.P
+                pause()
+
+        End Select
     End Sub
 
     'Startar spelet
@@ -107,8 +115,8 @@
         mode = 0
 
         'Setter opp referansar til bildet i eit array
-        tilesimg(NO_TILE) = New Bitmap(BG0IMG)
-        tilesimg(SNAKE_TILE) = New Bitmap(BG1IMG)
+        'tilesimg(NO_TILE) = New Bitmap(BG0IMG)
+        'tilesimg(SNAKE_TILE) = New Bitmap(BG1IMG)
         tilesimg(APPLE_TILE) = New Bitmap(BG2IMG)
 
         'Setter opp fargar til tilane
@@ -146,6 +154,7 @@
         setNewApple()
 
         'Startar spelet
+        timer = Ticker
         Ticker.Start()
     End Sub
 
@@ -178,16 +187,23 @@
                     For y As Integer = 0 To Size - 1
                         'g.DrawImage(tilesimg(data_map(x, y)), New Point(x * TILE_SIZE, y * TILE_SIZE))
                         If data_map(x, y) <> 0 Then
-                            Dim rect As Rectangle = New Rectangle(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
 
-                            Dim p As Brush
-                            If data_map(x, y) = APPLE_TILE Then
-                                p = New SolidBrush(tilesColor(APPLE_TILE))
+                            'Om det er definert eit bilde, blir det brukt.
+                            If (tilesimg(data_map(x, y)) IsNot Nothing) Then
+                                g.DrawImage(tilesimg(data_map(x, y)), x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
                             Else
-                                p = New SolidBrush(snakeColors(Convert.ToInt16(Rnd() * (snakeColors.Length - 1))))
-                            End If
+                                Dim rect As Rectangle = New Rectangle(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
 
-                            g.FillRectangle(p, rect)
+                                Dim p As Brush
+                                If data_map(x, y) = APPLE_TILE Then
+                                    p = New SolidBrush(tilesColor(APPLE_TILE))
+                                Else
+                                    p = New SolidBrush(snakeColors(Convert.ToInt16(Rnd() * (snakeColors.Length - 1))))
+                                End If
+
+                                g.FillRectangle(p, rect)
+
+                            End If
                         End If
                     Next
                 Next
@@ -279,7 +295,7 @@
 
     'Spelaren tapar
     Public Sub Lose()
-
+        lost = True
     End Sub
 
     'Funksjonen som håndterar oppdatering av spelet
@@ -312,7 +328,7 @@
         'Sjekkar om slangen kolliderar med seg sjølv
         For i As Integer = 1 To snakeSize - 1
             If snake(0) = snake(i) Then
-                lost = True
+                Lose()
             End If
         Next
 
@@ -336,5 +352,25 @@
 
         Return temp
     End Function
+
+    Public Function pause() As Boolean
+
+        timer.Enabled = Not timer.Enabled()
+
+        If timer.Enabled <> True Then
+            Using g As Graphics = Canvas.CreateGraphics()
+
+                'Teiknar pausesymbol
+                Dim b As Brush = New SolidBrush(Color.White)
+
+                g.FillRectangle(b, Convert.ToInt32((SIZE * TILE_SIZE) / 2 - (SIZE * TILE_SIZE) / 4), Convert.ToInt32((SIZE * TILE_SIZE) / 2 - (SIZE * TILE_SIZE) / 4), Convert.ToInt32((SIZE * TILE_SIZE) / 6), Convert.ToInt32((SIZE * TILE_SIZE) / 2))
+                g.FillRectangle(b, Convert.ToInt32((SIZE * TILE_SIZE) / 2 - (SIZE * TILE_SIZE) / 4) * 2, Convert.ToInt32((SIZE * TILE_SIZE) / 2 - (SIZE * TILE_SIZE) / 4), Convert.ToInt32((SIZE * TILE_SIZE) / 6), Convert.ToInt32((SIZE * TILE_SIZE) / 2))
+            End Using
+        End If
+
+
+        Return timer.Enabled
+    End Function
+
 
 End Class

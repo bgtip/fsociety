@@ -23,6 +23,7 @@ Public Class Form1
     'Sjekkar om brukaren trykker på knappar
     Sub Form1_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
         game.keyUpdate(sender, e)
+
     End Sub
 
 
@@ -35,6 +36,7 @@ Public Class Form1
             My.Computer.Audio.Play("game2.wav",
         AudioPlayMode.Background)
             MsgBox("Du tapte!!!")
+            Button1.Enabled = True
         End If
 
         If game.gotApple() Then
@@ -50,14 +52,10 @@ Public Class Form1
     'Når brukaren klikkar på reset knappen. Resetter spelet
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click ' Knappen er ikkje heilt klar enno
         Button1.Enabled = False
-        'init(Canvas)
+        game = New Game()
+
+        game.init(Canvas, Ticker)
 
     End Sub
-    Private Sub onClose(sender As Object, e As EventArgs) Handles Me.Closed ' Knappen er ikkje heilt klar enno
-        Button1.Enabled = False
-        'init(Canvas)
-        Form2.ActiveForm.Visible = True
-    End Sub
-
 
 End Class
