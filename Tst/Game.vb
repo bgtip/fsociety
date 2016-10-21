@@ -3,6 +3,8 @@
     Dim SIZE = Form3.SIZE2 'Størrelsen på spillområdet, satt ut i fra spillerens valg i options.
     'Public Const TILE_SIZE As Integer = 10 'Størrelse på kvar tile, i pikslar
     Dim TILE_SIZE = Form3.TILE_SIZE2
+    'Public speed As Integer = 100
+    Dim speed = Form3.speed2
 
     'Bilda som blir brukt i spelet
     Public Const BG0IMG As String = "bg0.png"
@@ -51,8 +53,8 @@
 
 
     'Intervallet som alt blir oppdatert på. I millisekund
-    Public speed As Integer = 100
-    Public freq As Integer = 100
+    'Public speed As Integer = 100
+    Public freq As Integer = speed
 
     'Punktet der 'eplet' er på
     Public applePoint As Point
@@ -147,7 +149,7 @@
             snake(i) = New Point(Convert.ToInt32(Math.Round(SIZE / 2)) + i, Convert.ToInt32(Math.Round(SIZE / 2)))
         Next
 
-        speed = 100
+        speed = Form3.speed2
 
         'Setter opp eplet 
         applePoint = New Point(0, 0)

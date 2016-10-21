@@ -39,6 +39,8 @@ Partial Class Form3
         Me.Button1.BackColor = System.Drawing.Color.Transparent
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.ForeColor = System.Drawing.Color.Transparent
         Me.Button1.Location = New System.Drawing.Point(557, 58)
@@ -47,13 +49,14 @@ Partial Class Form3
         Me.Button1.Size = New System.Drawing.Size(132, 27)
         Me.Button1.TabIndex = 0
         Me.Button1.UseVisualStyleBackColor = False
-        Me.Button1.Visible = False
         '
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.Color.Transparent
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.ForeColor = System.Drawing.Color.Transparent
         Me.Button2.Location = New System.Drawing.Point(93, 96)
@@ -62,13 +65,14 @@ Partial Class Form3
         Me.Button2.Size = New System.Drawing.Size(133, 34)
         Me.Button2.TabIndex = 1
         Me.Button2.UseVisualStyleBackColor = False
-        Me.Button2.Visible = False
         '
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.Color.Transparent
         Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.ForeColor = System.Drawing.Color.Transparent
         Me.Button3.Location = New System.Drawing.Point(93, 153)
@@ -77,13 +81,14 @@ Partial Class Form3
         Me.Button3.Size = New System.Drawing.Size(133, 34)
         Me.Button3.TabIndex = 2
         Me.Button3.UseVisualStyleBackColor = False
-        Me.Button3.Visible = False
         '
         'Button4
         '
         Me.Button4.BackColor = System.Drawing.Color.Transparent
         Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.ForeColor = System.Drawing.Color.Transparent
         Me.Button4.Location = New System.Drawing.Point(93, 205)
@@ -92,7 +97,6 @@ Partial Class Form3
         Me.Button4.Size = New System.Drawing.Size(133, 34)
         Me.Button4.TabIndex = 3
         Me.Button4.UseVisualStyleBackColor = False
-        Me.Button4.Visible = False
         '
         'CheckBox1
         '
@@ -119,6 +123,8 @@ Partial Class Form3
         Me.Button5.BackColor = System.Drawing.Color.Transparent
         Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button5.ForeColor = System.Drawing.Color.Transparent
         Me.Button5.Location = New System.Drawing.Point(355, 437)
@@ -127,13 +133,14 @@ Partial Class Form3
         Me.Button5.Size = New System.Drawing.Size(125, 27)
         Me.Button5.TabIndex = 6
         Me.Button5.UseVisualStyleBackColor = False
-        Me.Button5.Visible = False
         '
         'Button6
         '
         Me.Button6.BackColor = System.Drawing.Color.Transparent
         Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button6.FlatAppearance.BorderSize = 0
+        Me.Button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button6.ForeColor = System.Drawing.Color.Transparent
         Me.Button6.Location = New System.Drawing.Point(355, 468)
@@ -142,7 +149,6 @@ Partial Class Form3
         Me.Button6.Size = New System.Drawing.Size(125, 35)
         Me.Button6.TabIndex = 7
         Me.Button6.UseVisualStyleBackColor = False
-        Me.Button6.Visible = False
         '
         'PictureBox1
         '
