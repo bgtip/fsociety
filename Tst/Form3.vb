@@ -12,15 +12,15 @@ Public Class Form3
         Me.Visible = False
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click ' skyfter til mode 1
+    Private Sub Button2_Click(sender As Object, e As EventArgs)  ' skyfter til mode 1
         SIZE2 = 50
-        TILE_SIZE2 = 400 / 50
+        TILE_SIZE2 = 400 / 30
         Form1.Show()
         Me.Visible = False
         My.Computer.Audio.Stop()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click ' skyfter til mode 2
+    Private Sub Button3_Click(sender As Object, e As EventArgs)  ' skyfter til mode 2
         SIZE2 = 60
         TILE_SIZE2 = 400 / 60
         Form1.Show()
@@ -28,7 +28,7 @@ Public Class Form3
         My.Computer.Audio.Stop()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click ' skyfter til mode 3
+    Private Sub Button4_Click(sender As Object, e As EventArgs)  ' skyfter til mode 3
         SIZE2 = 70
         TILE_SIZE2 = 400 / 70
         Form1.Show()
@@ -40,5 +40,4 @@ Public Class Form3
     Private Sub OnApplicationExit(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Closing
         Application.Exit()
     End Sub
-
 End Class
