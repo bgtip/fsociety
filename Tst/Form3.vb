@@ -15,7 +15,6 @@ Public Class Form3
         speed2 = 70
         Form1.Show()
         Me.Visible = False
-
         My.Computer.Audio.Stop()
     End Sub
 
@@ -52,14 +51,13 @@ Public Class Form3
     Private Sub OnApplicationExit(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Closing
         Application.Exit()
     End Sub
-
-
-
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckStateChanged
         If CheckBox1.Checked = True Then
             My.Computer.Audio.Stop()
+        Else
+            My.Computer.Audio.Play("game-menu.wav",
+        AudioPlayMode.BackgroundLoop)
         End If
-
     End Sub
 
 End Class
