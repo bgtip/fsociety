@@ -65,6 +65,7 @@
     'Variabler som blir brukt uttafor.
     Public lost As Boolean
     Private eple As Boolean
+    Public closing As Boolean
 
     'Brukes for å forhindre at to knapper trykkes samtidig (aka krasj)
     Dim ko As Queue = New Queue()
@@ -98,6 +99,15 @@
         Select Case e.KeyCode
             Case Keys.P
                 pause()
+            Case Keys.Escape
+                pause()
+                Dim msg = MsgBox("Do you want to exit the game?", vbYesNo, "Yadda?")
+                pause()
+
+                If msg = vbYes Then
+                    closing = True
+
+                End If
 
         End Select
     End Sub
@@ -108,6 +118,7 @@
 
         lost = False
         eple = False
+        closing = False
 
         'Setter opp referansar til bildet i eit array. Blir brukt i picturebox grafikk greia
         tiles(NO_TILE) = BG0IMG

@@ -6,6 +6,12 @@ Public Class Form1
     Public game As Game
 
 
+    Public Sub start()
+        game = New Game()
+
+        game.init(Canvas, Ticker)
+    End Sub
+
 
     Private Sub OnApplicationExit(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Closing
         MsgBox("Thanks for playing!")
@@ -14,15 +20,14 @@ Public Class Form1
     'Funskjonen som køyrer da spelet startar
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        game = New Game()
-
-        game.init(Canvas, Ticker)
 
     End Sub
 
     'Sjekkar om brukaren trykker på knappar
     Sub Form1_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
         game.keyUpdate(sender, e)
+
+
 
     End Sub
 
@@ -37,6 +42,13 @@ Public Class Form1
         AudioPlayMode.Background)
             MsgBox("Du tapte!!!")
             Button1.Enabled = True
+        End If
+
+        If game.closing Then
+            Form2.Show()
+            Me.Visible = False
+            game = New Game()
+            game.init(Canvas, Ticker)
         End If
 
         If game.gotApple() Then

@@ -3,6 +3,7 @@
         Form1.Show()
         Me.Visible = False
         My.Computer.Audio.Stop()
+        Form1.start()
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
