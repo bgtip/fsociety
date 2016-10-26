@@ -14,6 +14,7 @@ Public Class Form3
         TILE_SIZE2 = 400 / 50
         speed2 = 70
         Form1.Show()
+        Form1.start()
         Me.Visible = False
         My.Computer.Audio.Stop()
     End Sub
@@ -27,6 +28,7 @@ Public Class Form3
         TILE_SIZE2 = 400 / 60
         speed2 = 50
         Form1.Show()
+        Form1.start()
         Me.Visible = False
         My.Computer.Audio.Stop()
     End Sub
@@ -40,6 +42,7 @@ Public Class Form3
         TILE_SIZE2 = 400 / 70
         speed2 = 40
         Form1.Show()
+        Form1.start()
         Me.Visible = False
         My.Computer.Audio.Stop()
     End Sub

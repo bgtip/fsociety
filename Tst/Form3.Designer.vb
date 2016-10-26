@@ -145,7 +145,7 @@ Partial Class Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.Tst.My.Resources.Resources.menu1
+        Me.BackgroundImage = Global.Tst.My.Resources.Resources.menu2
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(752, 583)
         Me.Controls.Add(Me.PictureBox1)
