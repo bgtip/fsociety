@@ -71,6 +71,9 @@
     Public effectChance As Single = Form3.modeChance
     'Effektbilder
     Public trippyImg As Image
+    Public invevrysec As Integer = 5000
+    Public invi As Integer = 0
+    Public invit As Integer = 0
 
     'Tilfeldige lydar
     Public soundTimer As Timer
@@ -137,7 +140,7 @@
 
                 If msg = vbYes Then
                     closing = True
-
+                    sound.stopSound("music")
                 End If
 
         End Select
@@ -209,6 +212,8 @@
         'Startar spelet
         timer = Ticker
         Ticker.Start()
+
+        activeEffect = 2
     End Sub
 
     'Tømmer speleområdet for alt. Gjer alle posisjonane til 0
@@ -504,6 +509,14 @@
     End Sub
     Public Sub modeInvisible()
         drawSnake = False
+        invi = invi + 1
+
+        If invi > 10 Then
+            'MsgBox(invi & "    " & invit)
+            drawSnake = True
+            invi = 0
+        End If
+
     End Sub
 
 
