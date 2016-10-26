@@ -10,10 +10,10 @@ Public Class Form3
         Me.Visible = False
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click ' skyfter til mode 1
-        SIZE2 = 50
-        TILE_SIZE2 = 400 / 50
-        speed2 = 70
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click ' skyfter til mode 1 (normal mode)
+        SIZE2 = 40
+        TILE_SIZE2 = 10
+        speed2 = 100
         modeChance = 1.1 'Ingen sjanse for eple effektar.
         Form1.Show()
         Form1.start()
