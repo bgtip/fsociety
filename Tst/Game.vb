@@ -59,6 +59,13 @@
     'Punktet der 'eplet' er på
     Public applePoint As Point
 
+    'Array av epleeffektar
+    Public appleEffects As Action()
+    'Den aktive effekten
+    Public activeEffect As Action
+    'Sjansen på å få ein effekt.
+    Public effectChance As Single = 0.6
+
     Public Canvas As Panel
     Public timer As Timer
 
@@ -145,6 +152,10 @@
         tilesColor(APPLE_TILE) = Color.Yellow
 
         snakeColors = New Color() {Color.White, Color.Gray}
+
+
+        'Setter opp epleeffaktar
+        appleEffects = New Action() {AddressOf modeTrippy}
 
         'Setter opp til picturebox-greia
         If PICBOXGRAPHICS Then
@@ -287,7 +298,18 @@
 
         'Om snake spiser eple
         If snake(0).Equals(applePoint) Then
+            'Finner ny posisjon til eplet
             setNewApple()
+
+            'Random effect
+            Dim vrnd As Single = Rnd()
+
+            If vrnd > effectChance Then
+                'MsgBox("EFFECT!" & vrnd & "  " & effectChance)
+                activeEffect = appleEffects(Convert.ToInt32((appleEffects.Length - 1) * Rnd()))
+
+            End If
+
             Array.Resize(snake, snake.Length + 1)
             snake(snake.Length - 1) = New Point(snake(snake.Length - 2).X, snake(snake.Length - 2).Y)
             snakeSize = snakeSize + 1
@@ -302,8 +324,19 @@
         Dim found As Boolean = False
 
         'data_map(applePoint.X, applePoint.Y) = NO_TILE
-        Dim x = ((SIZE - 1) * Rnd())
-        Dim y = ((SIZE - 1) * Rnd())
+
+        Dim x
+        Dim y
+
+        While True
+            x = ((SIZE - 1) * Rnd())
+            y = ((SIZE - 1) * Rnd())
+
+            If data_map(x, y) <> SNAKE_TILE Then
+                Exit While
+            End If
+
+        End While
         applePoint.X = x
         applePoint.Y = y
         Console.WriteLine(x, y)
@@ -325,21 +358,21 @@
         UpdateMap()
 
         If direction = RIGHT Or direction = LEFT Then
-                Select Case keyState
-                    Case Keys.Up
-                        direction = UP
-                    Case Keys.Down
+            Select Case keyState
+                Case Keys.Up
+                    direction = UP
+                Case Keys.Down
                     direction = DOWN
 
             End Select
-            ElseIf direction = UP Or direction = DOWN Then
-                Select Case keyState
-                    Case Keys.Right
-                        direction = RIGHT
-                    Case Keys.Left
-                        direction = LEFT
-                End Select
-            End If
+        ElseIf direction = UP Or direction = DOWN Then
+            Select Case keyState
+                Case Keys.Right
+                    direction = RIGHT
+                Case Keys.Left
+                    direction = LEFT
+            End Select
+        End If
 
         ko.Clear()
         'Viser poengsummen
@@ -354,13 +387,15 @@
 
         freq = speed
 
-        Select Case mode
-            Case 0
 
-            Case TRIPPY
-                freq = Convert.ToInt16(Rnd() * 200)
-        End Select
+        If activeEffect IsNot Nothing Then
+            activeEffect()
+        End If
+
     End Sub
+
+
+
 
     Public Function getScore() As Integer
         Return snakeSize - 3
@@ -373,6 +408,7 @@
         Return temp
     End Function
 
+    'Pauser 
     Public Function pause() As Boolean
 
         timer.Enabled = Not timer.Enabled()
@@ -391,6 +427,12 @@
 
         Return timer.Enabled
     End Function
+
+    Public Sub modeTrippy()
+
+        freq = Convert.ToInt16(Rnd() * 200)
+
+    End Sub
 
 
 End Class

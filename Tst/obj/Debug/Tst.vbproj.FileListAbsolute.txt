@@ -39,3 +39,5 @@ C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.Resources.resources
 C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.vbproj.GenerateResource.Cache
 C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.Form4.resources
 C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.Form5.resources
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.Form4.resources
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.Form5.resources
