@@ -7,7 +7,7 @@
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        My.Computer.Audio.Play("game-menu.wav",
+        My.Computer.Audio.Play("sound/music/main.wav",
         AudioPlayMode.BackgroundLoop)
 
         Dim conf As String

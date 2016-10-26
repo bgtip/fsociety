@@ -150,7 +150,7 @@
     Public Sub init(cnvs As Panel, Ticker As Timer, st As Timer, snd As Sound)
         Canvas = cnvs
         soundTimer = st
-        stsounds = New String() {"control-robot.wav", "owned-robot.wav"}
+        stsounds = New String() {"sound/fx/control.wav", "sound/fx/owned.wav"}
         sound = snd
 
         lost = False
@@ -179,7 +179,7 @@
         'Setter opp epleeffaktar
         appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed, AddressOf modeInvisible}
         effectImages = New Image() {New Bitmap("ModeTrippy.png"), New Bitmap("ModeSuperspeed.png"), New Bitmap("ModeInvisible.png")}
-        effectSounds = New String() {"fsoc-trippy.wav", "fsoc-super.wav", "invisibruh-FX.wav"}
+        effectSounds = New String() {"sound/music/trippy.wav", "sound/music/speed.wav", "sound/fx/invisibruh.wav"}
         playSound = False
 
         'Setter opp til picturebox-greia
@@ -212,8 +212,6 @@
         'Startar spelet
         timer = Ticker
         Ticker.Start()
-
-        activeEffect = 2
     End Sub
 
     'Tømmer speleområdet for alt. Gjer alle posisjonane til 0

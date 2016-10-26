@@ -43,20 +43,20 @@ Public Class Form1
 
         If game.lost Then
             Ticker.Enabled = False
-            sound.playSound("game2.wav", "soundeffects")
+            sound.playSound("sound/fx/oneshot/lose.wav", "soundeffects")
             MsgBox("Du tapte!!!")
             Button1.Enabled = True
         End If
 
         If game.closing Then
             Form2.Show()
-            sound.playSound("game-menu.wav", "music")
+            sound.playSound("sound/music/main.wav", "music")
             Me.Visible = False
             start()
         End If
 
         If game.gotApple() Then
-            sound.playSound("game1.wav", "soundeffects")
+            sound.playSound("sound/fx/oneshot/eat.wav", "soundeffects")
         End If
 
         Score.Text = "Poeng: " & game.getScore()
