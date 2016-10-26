@@ -1,15 +1,20 @@
 ﻿Imports Tst.Game
-
+Imports WMPLib
 
 Public Class Form1
 
     Public game As Game
+    Public sound As Sound
 
 
     Public Sub start()
+
+
+        sound = New Sound()
         game = New Game()
 
-        game.init(Canvas, Ticker, SoundTimer)
+        'sound.playSound("fsoc-trippy.wav", "music")
+        game.init(Canvas, Ticker, SoundTimer, sound)
     End Sub
 
 
@@ -38,23 +43,20 @@ Public Class Form1
 
         If game.lost Then
             Ticker.Enabled = False
-            My.Computer.Audio.Play("game2.wav",
-        AudioPlayMode.Background)
+            sound.playSound("game2.wav", "soundeffects")
             MsgBox("Du tapte!!!")
             Button1.Enabled = True
         End If
 
         If game.closing Then
             Form2.Show()
-            My.Computer.Audio.Play("game-menu.wav",
-        AudioPlayMode.BackgroundLoop)
+            sound.playSound("game-menu.wav", "music")
             Me.Visible = False
             start()
         End If
 
         If game.gotApple() Then
-            My.Computer.Audio.Play("game1.wav",
-        AudioPlayMode.Background)
+            sound.playSound("game1.wav", "soundeffects")
         End If
 
         Score.Text = "Poeng: " & game.getScore()
