@@ -161,8 +161,8 @@
 
 
         'Setter opp epleeffaktar
-        appleEffects = New Action() {AddressOf modeTrippy}
-        effectImages = New Image() {New Bitmap("ModeTrippy.png")}
+        appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed}
+        effectImages = New Image() {New Bitmap("ModeTrippy.png"), New Bitmap("ModeSuperspeed.png")}
 
         'Setter opp til picturebox-greia
         If PICBOXGRAPHICS Then
@@ -448,6 +448,10 @@
     Public Sub modeTrippy()
 
         freq = Convert.ToInt16(Rnd() * 200) + 1
+    End Sub
+    Public Sub modeSuperspeed()
+
+        freq = 25
     End Sub
 
 
