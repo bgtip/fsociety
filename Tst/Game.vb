@@ -65,7 +65,15 @@
     'Variabler som blir brukt uttafor.
     Public lost As Boolean
     Private eple As Boolean
+    Public closing As Boolean
 
+    'Knapper, kva kontrollar som kontrollerar kva.
+    Dim buttonUp = Keys.Up
+    Dim buttonDown = Keys.Down
+    Dim buttonRight = Keys.Right
+    Dim buttonLeft = Keys.Left
+    Dim buttonPause = Keys.P
+    Dim buttonExit = Keys.Escape
     'Brukes for å forhindre at to knapper trykkes samtidig (aka krasj)
     Dim ko As Queue = New Queue()
 
@@ -76,19 +84,19 @@
 
         If ready And direction = RIGHT Or direction = LEFT Then
             Select Case e.KeyCode
-                Case Keys.Up
+                Case buttonUp
                     ready = False
                     keyState = e.KeyCode
-                Case Keys.Down
+                Case buttonDown
                     ready = False
                     keyState = e.KeyCode
             End Select
         ElseIf ready And direction = UP Or direction = DOWN Then
             Select Case e.KeyCode
-                Case Keys.Right
+                Case buttonRight
                     ready = False
                     keyState = e.KeyCode
-                Case Keys.Left
+                Case buttonLeft
                     ready = False
                     keyState = e.KeyCode
             End Select
@@ -96,8 +104,17 @@
 
         'Sjekkar om pause
         Select Case e.KeyCode
-            Case Keys.P
+            Case buttonPause
                 pause()
+            Case buttonExit
+                pause()
+                Dim msg = MsgBox("Do you want to exit the game?", vbYesNo, "Yadda?")
+                pause()
+
+                If msg = vbYes Then
+                    closing = True
+
+                End If
 
         End Select
     End Sub
@@ -108,6 +125,7 @@
 
         lost = False
         eple = False
+        closing = False
 
         'Setter opp referansar til bildet i eit array. Blir brukt i picturebox grafikk greia
         tiles(NO_TILE) = BG0IMG
