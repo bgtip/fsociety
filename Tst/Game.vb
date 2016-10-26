@@ -50,6 +50,7 @@
     'Kva rettning slangen har.
     Public direction As Integer
     Public ready As Boolean
+    Public drawSnake As Boolean
 
 
     'Intervallet som alt blir oppdatert på. I millisekund
@@ -63,7 +64,7 @@
     Public appleEffects As Action()
     Public effectImages As Image()
     Public effectSounds As String()
-    Public playedSound As Boolean = False
+    Public playSound As Boolean
     'Den aktive effekten
     Public activeEffect As Integer = -1
     'Sjansen på å få ein effekt.
@@ -76,6 +77,8 @@
     Public stmin As Integer = 5000
     Public stmax As Integer = 20000
     Public stsounds As String()
+
+    Public sound As Sound
 
     Public screenImgPoint As Point = New Point(0, 0)
 
@@ -141,10 +144,11 @@
     End Sub
 
     'Startar spelet
-    Public Sub init(cnvs As Panel, Ticker As Timer, st As Timer)
+    Public Sub init(cnvs As Panel, Ticker As Timer, st As Timer, snd As Sound)
         Canvas = cnvs
         soundTimer = st
         stsounds = New String() {"control-robot.wav", "owned-robot.wav"}
+        sound = snd
 
         lost = False
         eple = False
@@ -170,9 +174,10 @@
         snakeColors = New Color() {Color.White, Color.Gray, Color.FromArgb(255, 200, 200, 200), Color.FromArgb(255, 180, 180, 180), Color.FromArgb(255, 160, 160, 160), Color.FromArgb(255, 140, 140, 140), Color.FromArgb(255, 120, 120, 120), Color.FromArgb(255, 100, 100, 100)}
 
         'Setter opp epleeffaktar
-        appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed}
-        effectImages = New Image() {New Bitmap("ModeTrippy.png"), New Bitmap("ModeSuperspeed.png")}
-        effectSounds = New String() {"", ""}
+        appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed, AddressOf modeInvisible}
+        effectImages = New Image() {New Bitmap("ModeTrippy.png"), New Bitmap("ModeSuperspeed.png"), New Bitmap("ModeInvisible.png")}
+        effectSounds = New String() {"fsoc-trippy.wav", "fsoc-super.wav", ""}
+        playSound = False
 
         'Setter opp til picturebox-greia
         If PICBOXGRAPHICS Then
@@ -194,7 +199,7 @@
         For i As Integer = 0 To snakeSize - 1
             snake(i) = New Point(Convert.ToInt32(Math.Round(SIZE / 2)) + i, Convert.ToInt32(Math.Round(SIZE / 2)))
         Next
-
+        drawSnake = True
         speed = Form3.speed2
 
         'Setter opp eplet 
@@ -208,8 +213,8 @@
 
     'Tømmer speleområdet for alt. Gjer alle posisjonane til 0
     Public Sub ClearMap()
-        For x As Integer = 0 To Size - 1
-            For y As Integer = 0 To Size - 1
+        For x As Integer = 0 To SIZE - 1
+            For y As Integer = 0 To SIZE - 1
                 If data_map(x, y) = SNAKE_TILE Then
                     data_map(x, y) = NO_TILE
                 End If
@@ -223,16 +228,16 @@
         data_map(applePoint.X, applePoint.Y) = APPLE_TILE
 
         If PICBOXGRAPHICS Then
-            For x As Integer = 0 To Size - 1
-                For y As Integer = 0 To Size - 1
+            For x As Integer = 0 To SIZE - 1
+                For y As Integer = 0 To SIZE - 1
                     graphic_map(x, y).ImageLocation = tiles(data_map(x, y))
                 Next
             Next
         Else
             Using g As Graphics = Canvas.CreateGraphics()
                 g.Clear(tilesColor(NO_TILE))
-                For x As Integer = 0 To Size - 1
-                    For y As Integer = 0 To Size - 1
+                For x As Integer = 0 To SIZE - 1
+                    For y As Integer = 0 To SIZE - 1
                         'g.DrawImage(tilesimg(data_map(x, y)), New Point(x * TILE_SIZE, y * TILE_SIZE))
                         If data_map(x, y) <> 0 Then
 
@@ -245,8 +250,10 @@
                                 Dim p As Brush
                                 If data_map(x, y) = APPLE_TILE Then
                                     p = New SolidBrush(tilesColor(APPLE_TILE))
-                                Else
+                                ElseIf data_map(x, y) = SNAKE_TILE And drawSnake Then
                                     p = New SolidBrush(snakeColors(Convert.ToInt16(Rnd() * (snakeColors.Length - 1))))
+                                Else
+                                    p = New SolidBrush(Color.Black)
                                 End If
 
                                 g.FillRectangle(p, rect)
@@ -269,7 +276,7 @@
             temp = New Point(snake(i).X, snake(i).Y)
             If frst = True Then
                 If direction = RIGHT Then
-                    If snake(i).X < Size - 1 Then
+                    If snake(i).X < SIZE - 1 Then
                         snake(i).X += 1
                     Else
                         snake(i).X = 0
@@ -279,11 +286,11 @@
                     If snake(i).X > 0 Then
                         snake(i).X -= 1
                     Else
-                        snake(i).X = Size - 1
+                        snake(i).X = SIZE - 1
                     End If
 
                 ElseIf direction = DOWN Then
-                    If snake(i).Y < Size - 1 Then
+                    If snake(i).Y < SIZE - 1 Then
                         snake(i).Y += 1
                     Else
                         snake(i).Y = 0
@@ -293,7 +300,7 @@
                     If snake(i).Y > 0 Then
                         snake(i).Y -= 1
                     Else
-                        snake(i).Y = Size - 1
+                        snake(i).Y = SIZE - 1
                     End If
                 Else
                     Exit For
@@ -322,10 +329,10 @@
             Dim vrnd As Single = Rnd()
             If vrnd > effectChance Then
                 'MsgBox("EFFECT!" & vrnd & "  " & effectChance)
-                playedSound = False
+                playSound = True
                 activeEffect = Convert.ToInt32((appleEffects.Length - 1) * Rnd())
             Else
-                playedSound = False
+                playSound = True
                 activeEffect = -1
             End If
 
@@ -360,7 +367,7 @@
         applePoint.Y = y
         Console.WriteLine(x, y)
         found = True
-                        data_map(x, y) = APPLE_TILE
+        data_map(x, y) = APPLE_TILE
 
 
     End Sub
@@ -415,21 +422,28 @@
         End If
 
 
+        drawSnake = True
+
         'Sjekkar for aktive effektar og kjøyrer dei.
         If activeEffect > -1 Then
             appleEffects(activeEffect)()
             drawScreenImage(effectImages(activeEffect))
-            If Not playedSound And effectSounds(activeEffect).Length > 0 Then
-                My.Computer.Audio.Play(effectSounds(activeEffect), AudioPlayMode.Background)
-                playedSound = True
+            If playSound And effectSounds(activeEffect).Length > 0 Then
+                'MsgBox("bbb2")
+
+                sound.playSound(effectSounds(activeEffect), "music")
+                playSound = False
             End If
+        Else
+            sound.stopSound("music")
         End If
 
     End Sub
 
     'Når Spillet bestemmer seg å spille av ein tilfeldig lyd.
     Public Sub stTick()
-        My.Computer.Audio.Play(stsounds(Rnd() * (stsounds.Length - 1)), AudioPlayMode.Background)
+
+        sound.playSound(stsounds(Rnd() * (stsounds.Length - 1)), "talking")
         soundTimer.Enabled = False
     End Sub
 
@@ -481,6 +495,9 @@
     Public Sub modeSuperspeed()
 
         freq = 25
+    End Sub
+    Public Sub modeInvisible()
+        drawSnake = False
     End Sub
 
 
