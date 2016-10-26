@@ -176,7 +176,7 @@
         'Setter opp epleeffaktar
         appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed, AddressOf modeInvisible}
         effectImages = New Image() {New Bitmap("ModeTrippy.png"), New Bitmap("ModeSuperspeed.png"), New Bitmap("ModeInvisible.png")}
-        effectSounds = New String() {"fsoc-trippy.wav", "fsoc-super.wav", ""}
+        effectSounds = New String() {"fsoc-trippy.wav", "fsoc-super.wav", "invisibruh-FX.wav"}
         playSound = False
 
         'Setter opp til picturebox-greia
@@ -431,7 +431,13 @@
             If playSound And effectSounds(activeEffect).Length > 0 Then
                 'MsgBox("bbb2")
 
-                sound.playSound(effectSounds(activeEffect), "music")
+                If activeEffect = 2 Then
+                    sound.playSound(effectSounds(activeEffect), "talking")
+                Else
+                    sound.playSound(effectSounds(activeEffect), "music")
+                End If
+
+
                 playSound = False
             End If
         Else
