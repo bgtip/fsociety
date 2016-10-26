@@ -9,7 +9,7 @@ Public Class Form1
     Public Sub start()
         game = New Game()
 
-        game.init(Canvas, Ticker)
+        game.init(Canvas, Ticker, SoundTimer)
     End Sub
 
 
@@ -47,8 +47,7 @@ Public Class Form1
         If game.closing Then
             Form2.Show()
             Me.Visible = False
-            game = New Game()
-            game.init(Canvas, Ticker)
+            start()
         End If
 
         If game.gotApple() Then
@@ -64,10 +63,11 @@ Public Class Form1
     'Når brukaren klikkar på reset knappen. Resetter spelet
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click ' Knappen er ikkje heilt klar enno
         Button1.Enabled = False
-        game = New Game()
-
-        game.init(Canvas, Ticker)
+        start()
 
     End Sub
 
+    Private Sub SoundTimer_Tick(sender As Object, e As EventArgs) Handles SoundTimer.Tick
+        game.stTick()
+    End Sub
 End Class

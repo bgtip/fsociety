@@ -27,6 +27,7 @@ Partial Class Form1
         Me.Canvas = New System.Windows.Forms.Panel()
         Me.Score = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.SoundTimer = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'Ticker
@@ -59,6 +60,9 @@ Partial Class Form1
         Me.Button1.Text = "Reset"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'SoundTimer
+        '
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -78,4 +82,5 @@ Partial Class Form1
     Friend WithEvents Canvas As Panel
     Friend WithEvents Score As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents SoundTimer As Timer
 End Class

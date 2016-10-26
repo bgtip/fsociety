@@ -62,12 +62,20 @@
     'Array av epleeffektar
     Public appleEffects As Action()
     Public effectImages As Image()
+    Public effectSounds As String()
+    Public playedSound As Boolean = False
     'Den aktive effekten
     Public activeEffect As Integer = -1
     'Sjansen på å få ein effekt.
     Public effectChance As Single = Form3.modeChance
     'Effektbilder
     Public trippyImg As Image
+
+    'Tilfeldige lydar
+    Public soundTimer As Timer
+    Public stmin As Integer = 5000
+    Public stmax As Integer = 20000
+    Public stsounds As String()
 
     Public screenImgPoint As Point = New Point(0, 0)
 
@@ -133,8 +141,10 @@
     End Sub
 
     'Startar spelet
-    Public Sub init(cnvs As Panel, Ticker As Timer)
+    Public Sub init(cnvs As Panel, Ticker As Timer, st As Timer)
         Canvas = cnvs
+        soundTimer = st
+        stsounds = New String() {"control-robot.wav", "owned-robot.wav"}
 
         lost = False
         eple = False
@@ -162,6 +172,7 @@
         'Setter opp epleeffaktar
         appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed}
         effectImages = New Image() {New Bitmap("ModeTrippy.png"), New Bitmap("ModeSuperspeed.png")}
+        effectSounds = New String() {"", ""}
 
         'Setter opp til picturebox-greia
         If PICBOXGRAPHICS Then
@@ -309,11 +320,12 @@
 
             'Random effect
             Dim vrnd As Single = Rnd()
-
             If vrnd > effectChance Then
                 'MsgBox("EFFECT!" & vrnd & "  " & effectChance)
+                playedSound = False
                 activeEffect = Convert.ToInt32((appleEffects.Length - 1) * Rnd())
             Else
+                playedSound = False
                 activeEffect = -1
             End If
 
@@ -394,14 +406,32 @@
 
         freq = speed
 
+        'Tilfeldige lyder
+        If soundTimer.Enabled Then
 
+        Else
+            soundTimer.Interval = Convert.ToInt32(stmin + Rnd() * (stmax - stmin))
+            soundTimer.Enabled = True
+        End If
+
+
+        'Sjekkar for aktive effektar og kjøyrer dei.
         If activeEffect > -1 Then
             appleEffects(activeEffect)()
             drawScreenImage(effectImages(activeEffect))
+            If Not playedSound And effectSounds(activeEffect).Length > 0 Then
+                My.Computer.Audio.Play(effectSounds(activeEffect), AudioPlayMode.Background)
+                playedSound = True
+            End If
         End If
 
     End Sub
 
+    'Når Spillet bestemmer seg å spille av ein tilfeldig lyd.
+    Public Sub stTick()
+        My.Computer.Audio.Play(stsounds(Rnd() * (stsounds.Length - 1)), AudioPlayMode.Background)
+        soundTimer.Enabled = False
+    End Sub
 
 
 
