@@ -46,6 +46,8 @@ Public Class Form1
 
         If game.closing Then
             Form2.Show()
+            My.Computer.Audio.Play("game-menu.wav",
+        AudioPlayMode.BackgroundLoop)
             Me.Visible = False
             start()
         End If
