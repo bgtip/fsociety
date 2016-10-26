@@ -61,10 +61,16 @@
 
     'Array av epleeffektar
     Public appleEffects As Action()
+    Public effectImages As Image()
     'Den aktive effekten
-    Public activeEffect As Action
+    Public activeEffect As Integer = -1
     'Sjansen på å få ein effekt.
     Public effectChance As Single = 0.6
+    'Effektbilder
+    Public trippyImg As Image
+
+    Public screenImgPoint As Point = New Point(0, 0)
+
 
     Public Canvas As Panel
     Public timer As Timer
@@ -156,6 +162,7 @@
 
         'Setter opp epleeffaktar
         appleEffects = New Action() {AddressOf modeTrippy}
+        effectImages = New Image() {New Bitmap("ModeTrippy.png")}
 
         'Setter opp til picturebox-greia
         If PICBOXGRAPHICS Then
@@ -306,8 +313,9 @@
 
             If vrnd > effectChance Then
                 'MsgBox("EFFECT!" & vrnd & "  " & effectChance)
-                activeEffect = appleEffects(Convert.ToInt32((appleEffects.Length - 1) * Rnd()))
-
+                activeEffect = Convert.ToInt32((appleEffects.Length - 1) * Rnd())
+            Else
+                activeEffect = -1
             End If
 
             Array.Resize(snake, snake.Length + 1)
@@ -388,8 +396,9 @@
         freq = speed
 
 
-        If activeEffect IsNot Nothing Then
-            activeEffect()
+        If activeEffect > -1 Then
+            appleEffects(activeEffect)()
+            drawScreenImage(effectImages(activeEffect))
         End If
 
     End Sub
@@ -428,10 +437,17 @@
         Return timer.Enabled
     End Function
 
+    Public Sub drawScreenImage(img As Image)
+        Using g As Graphics = Canvas.CreateGraphics()
+            screenImgPoint.X = (SIZE * TILE_SIZE) / 2 - 100
+
+            g.DrawImage(img, screenImgPoint)
+        End Using
+    End Sub
+
     Public Sub modeTrippy()
 
-        freq = Convert.ToInt16(Rnd() * 200)
-
+        freq = Convert.ToInt16(Rnd() * 200) + 1
     End Sub
 
 
