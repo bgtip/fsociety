@@ -43,6 +43,16 @@ Tst
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Tst.My.Resources.Resources.controls">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Tst.My.Resources.Resources.controls1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Tst.My.Resources.Resources.menu">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

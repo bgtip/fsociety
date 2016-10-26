@@ -29,7 +29,6 @@ Partial Class Form3
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -127,28 +126,12 @@ Partial Class Form3
         Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button5.ForeColor = System.Drawing.Color.Transparent
-        Me.Button5.Location = New System.Drawing.Point(355, 437)
+        Me.Button5.Location = New System.Drawing.Point(353, 473)
         Me.Button5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(125, 27)
         Me.Button5.TabIndex = 6
         Me.Button5.UseVisualStyleBackColor = False
-        '
-        'Button6
-        '
-        Me.Button6.BackColor = System.Drawing.Color.Transparent
-        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button6.FlatAppearance.BorderSize = 0
-        Me.Button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.Button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.ForeColor = System.Drawing.Color.Transparent
-        Me.Button6.Location = New System.Drawing.Point(355, 468)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(125, 35)
-        Me.Button6.TabIndex = 7
-        Me.Button6.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
@@ -162,11 +145,10 @@ Partial Class Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.Tst.My.Resources.Resources.menu
+        Me.BackgroundImage = Global.Tst.My.Resources.Resources.menu1
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(752, 583)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.CheckBox1)
@@ -190,6 +172,5 @@ Partial Class Form3
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents CheckBox2 As CheckBox
     Friend WithEvents Button5 As Button
-    Friend WithEvents Button6 As Button
     Friend WithEvents PictureBox1 As PictureBox
 End Class

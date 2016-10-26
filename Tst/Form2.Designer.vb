@@ -37,10 +37,10 @@ Partial Class Form2
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.ForeColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(34, 185)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button1.Location = New System.Drawing.Point(45, 228)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(103, 38)
+        Me.Button1.Size = New System.Drawing.Size(137, 47)
         Me.Button1.TabIndex = 0
         Me.Button1.UseVisualStyleBackColor = False
         '
@@ -54,10 +54,10 @@ Partial Class Form2
         Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.ForeColor = System.Drawing.Color.Transparent
-        Me.Button2.Location = New System.Drawing.Point(43, 249)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button2.Location = New System.Drawing.Point(57, 306)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(116, 38)
+        Me.Button2.Size = New System.Drawing.Size(155, 47)
         Me.Button2.TabIndex = 1
         Me.Button2.UseVisualStyleBackColor = False
         '
@@ -71,25 +71,25 @@ Partial Class Form2
         Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.ForeColor = System.Drawing.Color.Transparent
-        Me.Button3.Location = New System.Drawing.Point(43, 310)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button3.Location = New System.Drawing.Point(57, 382)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(71, 38)
+        Me.Button3.Size = New System.Drawing.Size(95, 47)
         Me.Button3.TabIndex = 2
         Me.Button3.UseVisualStyleBackColor = False
         '
         'Form2
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Tst.My.Resources.Resources.bgimg
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(562, 473)
+        Me.ClientSize = New System.Drawing.Size(749, 582)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.DoubleBuffered = True
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "Form2"
         Me.Text = "Form2"
         Me.ResumeLayout(False)
