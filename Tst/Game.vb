@@ -65,7 +65,7 @@
     'Den aktive effekten
     Public activeEffect As Integer = -1
     'Sjansen på å få ein effekt.
-    Public effectChance As Single = 0.6
+    Public effectChance As Single = Form3.modeChance
     'Effektbilder
     Public trippyImg As Image
 

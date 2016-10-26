@@ -3,6 +3,7 @@ Public Class Form3
     Public SIZE2 As Integer = 40
     Public TILE_SIZE2 As Integer = 10
     Public speed2 As Integer = 100
+    Public modeChance As Single = 0.6
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'går tilbake til hovedmenyen
         Form2.Show()
@@ -13,6 +14,7 @@ Public Class Form3
         SIZE2 = 50
         TILE_SIZE2 = 400 / 50
         speed2 = 70
+        modeChance = 1.1 'Ingen sjanse for eple effektar.
         Form1.Show()
         Form1.start()
         Me.Visible = False
@@ -66,5 +68,9 @@ Public Class Form3
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Form4.Show()
         Me.Visible = False
+    End Sub
+
+    Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
