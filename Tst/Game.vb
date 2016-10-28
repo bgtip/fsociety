@@ -179,9 +179,9 @@
         snakeColors = normalColors
 
         'Setter opp epleeffaktar
-        appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed, AddressOf modeInvisible, AddressOf modeNewStone}
-        effectImages = New Image() {New Bitmap("ModeTrippy.png"), New Bitmap("ModeSuperspeed.png"), New Bitmap("ModeInvisible.png"), Nothing}
-        effectSounds = New String() {"sound/music/trippy.wav", "sound/music/speed.wav", "sound/music/glitch.wav", ""}
+        appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed, AddressOf modeInvisible, AddressOf modeNewStone, AddressOf modeMsgBox}
+        effectImages = New Image() {New Bitmap("ModeTrippy.png"), New Bitmap("ModeSuperspeed.png"), New Bitmap("ModeInvisible.png"), Nothing, Nothing}
+        effectSounds = New String() {"sound/music/trippy.wav", "sound/music/speed.wav", "sound/music/glitch.wav", "", ""}
         playSound = False
 
         Canvas.Size = New Size(SIZE * TILE_SIZE, SIZE * TILE_SIZE)
@@ -550,7 +550,7 @@
             x = ((SIZE - 1) * Rnd())
             y = ((SIZE - 1) * Rnd())
 
-            If data_map(x, y) <> SNAKE_TILE And data_map(x, y) <> APPLE_TILE Then
+            If data_map(x, y) <> SNAKE_TILE And data_map(x, y) <> APPLE_TILE And data_map(x, y) <> STONE_TILE Then
                 Exit While
             End If
 
@@ -561,6 +561,15 @@
 
         activeEffect = -1
         'MsgBox("Heisan!" & x & "   " & y)
+
+    End Sub
+
+    'Troll message box
+    Public Sub modeMsgBox()
+
+        Dim msg As String() = New String() {"Heisan!", "You suck!", "I am the best!", "Snake!"}
+        activeEffect = -1
+        MsgBox(msg(Convert.ToInt32(Rnd() * (msg.Length - 1))), )
 
     End Sub
 
