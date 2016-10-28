@@ -16,9 +16,6 @@
     Public Const SNAKE_TILE As Integer = 1
     Public Const APPLE_TILE As Integer = 2
 
-    'Ein rar måte å vise spelet på. Er standard ikkje i bruk.
-    Public Const PICBOXGRAPHICS As Boolean = False
-
     'Rettningane til slangen
     Public Const RIGHT As Integer = 0
     Public Const LEFT As Integer = 1
@@ -39,11 +36,6 @@
     Public tilesimg(3) As Bitmap
     Public tilesColor(3) As Color
     Public snakeColors As Color()
-
-    Public Const TRIPPY As Integer = 1
-
-    Public mode As Integer
-    Public modeArray As Integer
 
     'Slangedataen. Eit array av punkt. Både x og y
     Public snake(snakeSize) As Point
@@ -162,7 +154,6 @@
         tiles(SNAKE_TILE) = BG1IMG
         tiles(APPLE_TILE) = BG2IMG
 
-        mode = 0
 
         'Setter opp referansar til bildet i eit array
         'tilesimg(NO_TILE) = New Bitmap(BG0IMG)
@@ -181,11 +172,6 @@
         effectImages = New Image() {New Bitmap("ModeTrippy.png"), New Bitmap("ModeSuperspeed.png"), New Bitmap("ModeInvisible.png")}
         effectSounds = New String() {"sound/music/trippy.wav", "sound/music/speed.wav", "sound/fx/invisibruh.wav"}
         playSound = False
-
-        'Setter opp til picturebox-greia
-        If PICBOXGRAPHICS Then
-            Canvas.Visible = False
-        End If
 
         Canvas.Size = New Size(SIZE * TILE_SIZE, SIZE * TILE_SIZE)
 
@@ -229,49 +215,41 @@
     Public Sub UpdateMap()
 
         data_map(applePoint.X, applePoint.Y) = APPLE_TILE
-
-        If PICBOXGRAPHICS Then
+        Using g As Graphics = Canvas.CreateGraphics()
+            g.Clear(tilesColor(NO_TILE))
             For x As Integer = 0 To SIZE - 1
                 For y As Integer = 0 To SIZE - 1
-                    graphic_map(x, y).ImageLocation = tiles(data_map(x, y))
+                    'g.DrawImage(tilesimg(data_map(x, y)), New Point(x * TILE_SIZE, y * TILE_SIZE))
+                    If data_map(x, y) <> 0 Then
+
+                        'Om det er definert eit bilde, blir det brukt.
+                        If (tilesimg(data_map(x, y)) IsNot Nothing) Then
+                            g.DrawImage(tilesimg(data_map(x, y)), x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
+                        Else
+                            Dim rect As Rectangle = New Rectangle(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
+
+                            Dim p As Brush
+                            If data_map(x, y) = APPLE_TILE Then
+                                p = New SolidBrush(tilesColor(APPLE_TILE))
+                            ElseIf data_map(x, y) = SNAKE_TILE And drawSnake Then
+                                p = New SolidBrush(snakeColors(Convert.ToInt16(Rnd() * (snakeColors.Length - 1))))
+                            Else
+                                p = New SolidBrush(Color.Black)
+                            End If
+
+                            g.FillRectangle(p, rect)
+
+                        End If
+                    End If
                 Next
             Next
-        Else
-            Using g As Graphics = Canvas.CreateGraphics()
-                g.Clear(tilesColor(NO_TILE))
-                For x As Integer = 0 To SIZE - 1
-                    For y As Integer = 0 To SIZE - 1
-                        'g.DrawImage(tilesimg(data_map(x, y)), New Point(x * TILE_SIZE, y * TILE_SIZE))
-                        If data_map(x, y) <> 0 Then
-
-                            'Om det er definert eit bilde, blir det brukt.
-                            If (tilesimg(data_map(x, y)) IsNot Nothing) Then
-                                g.DrawImage(tilesimg(data_map(x, y)), x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
-                            Else
-                                Dim rect As Rectangle = New Rectangle(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
-
-                                Dim p As Brush
-                                If data_map(x, y) = APPLE_TILE Then
-                                    p = New SolidBrush(tilesColor(APPLE_TILE))
-                                ElseIf data_map(x, y) = SNAKE_TILE And drawSnake Then
-                                    p = New SolidBrush(snakeColors(Convert.ToInt16(Rnd() * (snakeColors.Length - 1))))
-                                Else
-                                    p = New SolidBrush(Color.Black)
-                                End If
-
-                                g.FillRectangle(p, rect)
-
-                            End If
-                        End If
-                    Next
-                Next
-            End Using
-        End If
+        End Using
     End Sub
 
     'Oppdaterar slangen
     Public Sub UpdateSnake()
 
+        'Håndterer bevegelsen av slangen.
         Dim prevp As Point
         Dim temp As Point
         Dim frst As Boolean = True
@@ -310,7 +288,6 @@
 
                 End If
                 frst = False
-                'MsgBox("Poo")
             Else
                 snake(i).X = prevp.X
                 snake(i).Y = prevp.Y
@@ -319,6 +296,7 @@
             prevp = New Point(temp.X, temp.Y)
         Next
 
+        'Setter inn punkta der slangen er i på kartet.
         For i As Integer = 0 To snakeSize - 1
             data_map(snake(i).X, snake(i).Y) = SNAKE_TILE
         Next
@@ -331,7 +309,6 @@
             'Random effect
             Dim vrnd As Single = Rnd()
             If vrnd > effectChance Then
-                'MsgBox("EFFECT!" & vrnd & "  " & effectChance)
                 playSound = True
                 activeEffect = Convert.ToInt32((appleEffects.Length - 1) * Rnd())
             Else
@@ -351,8 +328,6 @@
     Public Sub setNewApple()
         Dim chance As Double = 0.01
         Dim found As Boolean = False
-
-        'data_map(applePoint.X, applePoint.Y) = NO_TILE
 
         Dim x
         Dim y
@@ -387,6 +362,7 @@
         UpdateSnake()
         UpdateMap()
 
+        'Håndterer kontrollen av slangen.
         If direction = RIGHT Or direction = LEFT Then
             Select Case keyState
                 Case Keys.Up
@@ -405,16 +381,16 @@
         End If
 
         ko.Clear()
-        'Viser poengsummen
-        'Score.Text = "Poeng: " & snakeSize - 3
 
-        'Sjekkar om slangen kolliderar med seg sjølv
+
+        'Sjekkar om slangen kolliderar med seg sjølv. Om den gjer, tapar spelaren.
         For i As Integer = 1 To snakeSize - 1
             If snake(0) = snake(i) Then
                 Lose()
             End If
         Next
 
+        'Setter inn oppdateringsfrekvensen.
         freq = speed
 
         'Tilfeldige lyder
@@ -425,7 +401,7 @@
             soundTimer.Enabled = True
         End If
 
-
+        'setter at slangen skal visast på skjermen.
         drawSnake = True
 
         'Sjekkar for aktive effektar og kjøyrer dei.
@@ -457,11 +433,12 @@
         soundTimer.Enabled = False
     End Sub
 
-
-
+    'Får poengsummen til spelet.
     Public Function getScore() As Integer
         Return snakeSize - 3
     End Function
+
+    'Returnerer True da slangen nettop har ete eit eple.
     Public Function gotApple() As Boolean
         Dim temp As Boolean = eple
 
@@ -470,7 +447,7 @@
         Return temp
     End Function
 
-    'Pauser 
+    'Pauser spelet. Eller setter spelet til ikkje pause.
     Public Function pause() As Boolean
 
         timer.Enabled = Not timer.Enabled()
@@ -490,6 +467,7 @@
         Return timer.Enabled
     End Function
 
+    'Viser bilde på skjermen. Brukt til å vise kva mode som er aktiv.
     Public Sub drawScreenImage(img As Image)
         Using g As Graphics = Canvas.CreateGraphics()
             screenImgPoint.X = (SIZE * TILE_SIZE) / 2 - 100
@@ -498,14 +476,19 @@
         End Using
     End Sub
 
+    'Funskjonen som blir brukt i trippy mode.
     Public Sub modeTrippy()
 
         freq = Convert.ToInt16(Rnd() * 200) + 1
     End Sub
+
+    'Funksjonen som blir brukt i superspeed mode.
     Public Sub modeSuperspeed()
 
         freq = 25
     End Sub
+
+    'Funksjonen som blir brukt i invisible mode.
     Public Sub modeInvisible()
         drawSnake = False
         invi = invi + 1
