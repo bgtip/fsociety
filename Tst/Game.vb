@@ -378,6 +378,7 @@
     'Spelaren tapar
     Public Sub Lose()
         lost = True
+        sound.stopSound("music")
     End Sub
 
     'Funksjonen som håndterar oppdatering av spelet

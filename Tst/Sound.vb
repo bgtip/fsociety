@@ -2,19 +2,11 @@
 
 Public Class Sound
 
-    Const SRATE As Integer = 44100
-    Const FREQ As Integer = 440
-    Const DUR As Integer = 1
-
-    Public playing As Boolean = False
-
     Dim retVal As Long
 
     Dim activeChannels As New Dictionary(Of String, Boolean)
 
     Private Declare Function mciSendString Lib "winmm.dll" Alias "mciSendStringA" (ByVal lpstrCommand As String, ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCallback As IntPtr) As Integer
-
-    Public ko As Queue = New Queue()
 
     Public Sub init()
         'Setter opp dei ulike kanalane
