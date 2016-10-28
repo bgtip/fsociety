@@ -15,6 +15,7 @@
     Public Const NO_TILE As Integer = 0
     Public Const SNAKE_TILE As Integer = 1
     Public Const APPLE_TILE As Integer = 2
+    Public Const STONE_TILE As Integer = 3
 
     'Rettningane til slangen
     Public Const RIGHT As Integer = 0
@@ -34,10 +35,12 @@
     Public data_map(Size, Size) As Integer
 
     'Data på bildene.
-    Public tiles(3) As String
-    Public tilesimg(3) As Bitmap
-    Public tilesColor(3) As Color
+    Public tiles(4) As String
+    Public tilesimg(4) As Bitmap
+    Public tilesColor(4) As Color
     Public snakeColors As Color()
+    Public normalColors As Color()
+    Public discoColors As Color()
 
     'Slangedataen. Eit array av punkt. Både x og y
     Public snake(snakeSize) As Point
@@ -50,6 +53,8 @@
     'Intervallet som alt blir oppdatert på. I millisekund
     'Public speed As Integer = 100
     Public freq As Integer = speed
+
+    Public stonePoint As List(Of Point) = New List(Of Point)
 
     'Punktet der 'eplet' er på
     Public applePoint As Point
@@ -166,14 +171,17 @@
         tilesColor(NO_TILE) = Color.Black
         'tilesColor(SNAKE_TILE) = Color.Pink
         tilesColor(APPLE_TILE) = Color.Yellow
+        tilesColor(STONE_TILE) = Color.Gray
 
         'Setter opp fargane til snake.
-        snakeColors = New Color() {Color.White, Color.Gray, Color.FromArgb(255, 200, 200, 200), Color.FromArgb(255, 180, 180, 180), Color.FromArgb(255, 160, 160, 160), Color.FromArgb(255, 140, 140, 140), Color.FromArgb(255, 120, 120, 120), Color.FromArgb(255, 100, 100, 100)}
+        normalColors = New Color() {Color.White, Color.Gray, Color.FromArgb(255, 200, 200, 200), Color.FromArgb(255, 180, 180, 180), Color.FromArgb(255, 160, 160, 160), Color.FromArgb(255, 140, 140, 140), Color.FromArgb(255, 120, 120, 120), Color.FromArgb(255, 100, 100, 100)}
+        discoColors = New Color() {Color.Blue, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Green}
+        snakeColors = normalColors
 
         'Setter opp epleeffaktar
-        appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed, AddressOf modeInvisible}
-        effectImages = New Image() {New Bitmap("ModeTrippy.png"), New Bitmap("ModeSuperspeed.png"), New Bitmap("ModeInvisible.png")}
-        effectSounds = New String() {"sound/music/trippy.wav", "sound/music/speed.wav", "sound/music/glitch.wav"}
+        appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed, AddressOf modeInvisible, AddressOf modeNewStone}
+        effectImages = New Image() {New Bitmap("ModeTrippy.png"), New Bitmap("ModeSuperspeed.png"), New Bitmap("ModeInvisible.png"), Nothing}
+        effectSounds = New String() {"sound/music/trippy.wav", "sound/music/speed.wav", "sound/music/glitch.wav", ""}
         playSound = False
 
         Canvas.Size = New Size(SIZE * TILE_SIZE, SIZE * TILE_SIZE)
@@ -217,6 +225,13 @@
     'Oppdater speleområdet. Viser alt som skal visast
     Public Sub UpdateMap()
 
+        For Each o In stonePoint
+            data_map(o.X, o.Y) = STONE_TILE
+            Console.WriteLine("Stones")
+
+        Next
+
+
         data_map(applePoint.X, applePoint.Y) = APPLE_TILE
         Using g As Graphics = Canvas.CreateGraphics()
             g.Clear(tilesColor(NO_TILE))
@@ -226,9 +241,9 @@
                     If data_map(x, y) <> 0 Then
 
                         'Om det er definert eit bilde, blir det brukt.
-                        If (tilesimg(data_map(x, y)) IsNot Nothing) Then
+                        If tilesimg(data_map(x, y)) IsNot Nothing Then
                             g.DrawImage(tilesimg(data_map(x, y)), x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
-                        Else
+                        ElseIf data_map(x, y) = SNAKE_TILE Then
                             Dim rect As Rectangle = New Rectangle(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
 
                             Dim p As Brush
@@ -241,7 +256,10 @@
                             End If
 
                             g.FillRectangle(p, rect)
-
+                        Else
+                            Dim rect As Rectangle = New Rectangle(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
+                            Dim p As Brush = New SolidBrush(tilesColor(data_map(x, y)))
+                            g.FillRectangle(p, rect)
                         End If
                     End If
                 Next
@@ -304,6 +322,14 @@
             data_map(snake(i).X, snake(i).Y) = SNAKE_TILE
         Next
 
+
+        For Each o In stonePoint
+            If snake(0).Equals(o) Then
+                Lose()
+            End If
+        Next
+
+
         'Om snake spiser eple
         If snake(0).Equals(applePoint) Then
             'Finner ny posisjon til eplet
@@ -340,7 +366,7 @@
             x = ((SIZE - 1) * Rnd())
             y = ((SIZE - 1) * Rnd())
 
-            If data_map(x, y) <> SNAKE_TILE Then
+            If data_map(x, y) <> SNAKE_TILE And data_map(x, y) <> STONE_TILE Then
                 Exit While
             End If
 
@@ -408,10 +434,17 @@
         'setter at slangen skal visast på skjermen.
         drawSnake = True
 
+        snakeColors = normalColors
+
         'Sjekkar for aktive effektar og kjøyrer dei.
         If activeEffect > -1 Then
-            appleEffects(activeEffect)()
-            drawScreenImage(effectImages(activeEffect))
+
+
+            If effectImages(activeEffect) Is Nothing Then
+            Else
+
+                drawScreenImage(effectImages(activeEffect))
+            End If
             If playSound And effectSounds(activeEffect).Length > 0 Then
                 'MsgBox("bbb2")
 
@@ -422,6 +455,8 @@
 
                 playSound = False
             End If
+
+            appleEffects(activeEffect)()
         Else
             sound.stopSound("music")
         End If
@@ -481,6 +516,7 @@
     'Funskjonen som blir brukt i trippy mode.
     Public Sub modeTrippy()
 
+        snakeColors = discoColors
         freq = Convert.ToInt16(Rnd() * 200) + 1
     End Sub
 
@@ -500,6 +536,31 @@
             drawSnake = True
             invi = 0
         End If
+
+    End Sub
+
+    'Ny Stein modus
+    Public Sub modeNewStone()
+        Dim chance As Double = 0.01
+
+        Dim x
+        Dim y
+
+        While True
+            x = ((SIZE - 1) * Rnd())
+            y = ((SIZE - 1) * Rnd())
+
+            If data_map(x, y) <> SNAKE_TILE And data_map(x, y) <> APPLE_TILE Then
+                Exit While
+            End If
+
+        End While
+        stonePoint.Add(New Point(x, y))
+        Console.WriteLine(x, y)
+        data_map(x, y) = STONE_TILE
+
+        activeEffect = -1
+        MsgBox("Heisan!" & x & "   " & y)
 
     End Sub
 
