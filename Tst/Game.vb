@@ -23,7 +23,9 @@
     Public Const UP As Integer = 3
 
     'Størrelsen på slangen
-    Public snakeSize As Integer = 3
+    Public snakeSize As Integer = 10
+
+    Public score As Integer = 0
     'Dim snakeSize = Form3.snakeSize2
 
     'Array på grafikkgreiene, brukar picturebox. Vanlegvis ikkje i bruk.
@@ -320,6 +322,7 @@
             Array.Resize(snake, snake.Length + 1)
             snake(snake.Length - 1) = New Point(snake(snake.Length - 2).X, snake(snake.Length - 2).Y)
             snakeSize = snakeSize + 1
+            score += 1
             eple = True
         End If
         ready = True
@@ -434,7 +437,7 @@
 
     'Får poengsummen til spelet.
     Public Function getScore() As Integer
-        Return snakeSize - 3
+        Return score
     End Function
 
     'Returnerer True da slangen nettop har ete eit eple.
