@@ -171,7 +171,7 @@
         'Setter opp epleeffaktar
         appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed, AddressOf modeInvisible}
         effectImages = New Image() {New Bitmap("ModeTrippy.png"), New Bitmap("ModeSuperspeed.png"), New Bitmap("ModeInvisible.png")}
-        effectSounds = New String() {"sound/music/trippy.wav", "sound/music/speed.wav", "sound/fx/invisibruh.wav"}
+        effectSounds = New String() {"sound/music/trippy.wav", "sound/music/speed.wav", "sound/music/glitch.wav"}
         playSound = False
 
         Canvas.Size = New Size(SIZE * TILE_SIZE, SIZE * TILE_SIZE)
@@ -412,11 +412,9 @@
             If playSound And effectSounds(activeEffect).Length > 0 Then
                 'MsgBox("bbb2")
 
-                If activeEffect = 2 Then
-                    sound.playSound(effectSounds(activeEffect), "talking")
-                Else
-                    sound.playSound(effectSounds(activeEffect), "music")
-                End If
+
+                sound.playSound(effectSounds(activeEffect), "music")
+
 
 
                 playSound = False
