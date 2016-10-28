@@ -8,6 +8,9 @@ Public Class Sound
     'Holder styr på kva lydkanalar som er aktive.
     Dim activeChannels As New Dictionary(Of String, Boolean)
 
+    Public musicOn As Boolean = True
+    Public soundOn As Boolean = True
+
     'Deklarerer lydbibloteket.
     Private Declare Function mciSendString Lib "winmm.dll" Alias "mciSendStringA" (ByVal lpstrCommand As String, ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCallback As IntPtr) As Integer
 
@@ -33,7 +36,19 @@ Public Class Sound
         Dim add As String = ""
         If String.Compare(channel, "music") = 0 Then
             add = "repeat"
+            If musicOn = False Then
+                activeChannels.Item(channel) = True
+
+                Exit Sub
+            End If
         End If
+
+        If soundOn = False Then
+            activeChannels.Item(channel) = True
+
+            Exit Sub
+        End If
+
 
         'Opnar og spelar av lyden.
         retVal = mciSendString("open " & str & " type mpegvideo alias " & channel, vbNullString, 0, 0)

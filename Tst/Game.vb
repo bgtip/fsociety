@@ -165,6 +165,7 @@
         'tilesColor(SNAKE_TILE) = Color.Pink
         tilesColor(APPLE_TILE) = Color.Yellow
 
+        'Setter opp fargane til snake.
         snakeColors = New Color() {Color.White, Color.Gray, Color.FromArgb(255, 200, 200, 200), Color.FromArgb(255, 180, 180, 180), Color.FromArgb(255, 160, 160, 160), Color.FromArgb(255, 140, 140, 140), Color.FromArgb(255, 120, 120, 120), Color.FromArgb(255, 100, 100, 100)}
 
         'Setter opp epleeffaktar

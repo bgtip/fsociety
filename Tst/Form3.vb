@@ -9,6 +9,7 @@ Public Class Something
     Dim Mode3 As Image = Image.FromFile("insane.png")
     Dim standard As Image = Image.FromFile("cyka.png")
 
+
     'Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
     '    Me.PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
     '    Me.PictureBox1.BackgroundImage = standard
@@ -86,10 +87,11 @@ Public Class Something
     End Sub
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckStateChanged
         If CheckBox1.Checked = True Then
-            My.Computer.Audio.Stop()
+            Form1.sound.musicOn = False
+            Form1.sound.stopSound("music")
         Else
-            My.Computer.Audio.Play("game-menu.wav",
-        AudioPlayMode.BackgroundLoop)
+            Form1.sound.musicOn = True
+            Form1.sound.playSound("sound/music/main.wav", "music")
         End If
     End Sub
 
@@ -98,4 +100,11 @@ Public Class Something
         Me.Visible = False
     End Sub
 
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
+        If CheckBox2.Checked = True Then
+            Form1.sound.soundOn = False
+        Else
+            Form1.sound.soundOn = True
+        End If
+    End Sub
 End Class

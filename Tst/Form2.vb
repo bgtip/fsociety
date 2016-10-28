@@ -7,7 +7,7 @@
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        My.Computer.Audio.Play("sound/music/main.wav", AudioPlayMode.BackgroundLoop)
+        Form1.sound.playSound("sound/music/main.wav", "music")
 
         Dim conf As String
         conf = My.Computer.FileSystem.ReadAllText("config.txt")

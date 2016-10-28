@@ -4,13 +4,10 @@ Imports WMPLib
 Public Class Form1
 
     Public game As Game
-    Public sound As Sound
+    Public sound As Sound = New Sound()
 
 
     Public Sub start()
-
-
-        sound = New Sound()
         game = New Game()
 
         'sound.playSound("fsoc-trippy.wav", "music")
