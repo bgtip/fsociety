@@ -560,7 +560,7 @@
         data_map(x, y) = STONE_TILE
 
         activeEffect = -1
-        MsgBox("Heisan!" & x & "   " & y)
+        'MsgBox("Heisan!" & x & "   " & y)
 
     End Sub
 
