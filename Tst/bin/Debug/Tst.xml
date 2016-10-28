@@ -78,6 +78,11 @@ Tst
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Tst.My.Resources.Resources.picturebilde">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Tst.My.Resources.Resources.quit">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

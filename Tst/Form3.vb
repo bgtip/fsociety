@@ -3,7 +3,7 @@ Public Class Form3
     Public SIZE2 As Integer = 40
     Public TILE_SIZE2 As Integer = 10
     Public speed2 As Integer = 100
-    Public modeChance As Single = 0.6
+    Public modeChance As Single = 0.4
     Dim Mode1 As Image = Image.FromFile("easy1.png")
     Dim Mode2 As Image = Image.FromFile("hard.png")
     Dim Mode3 As Image = Image.FromFile("insane.png")
@@ -26,8 +26,7 @@ Public Class Form3
         TILE_SIZE2 = 10
         speed2 = 100
         modeChance = 1.1 'Ingen sjanse for eple effektar.
-        Form1.Show()
-        Form1.start()
+        Form2.Show()
         Me.Visible = False
         My.Computer.Audio.Stop()
     End Sub
@@ -46,8 +45,8 @@ Public Class Form3
         SIZE2 = 60
         TILE_SIZE2 = 400 / 60
         speed2 = 50
-        Form1.Show()
-        Form1.start()
+        modeChance = 0.4
+        Form2.Show()
         Me.Visible = False
         My.Computer.Audio.Stop()
     End Sub
@@ -66,8 +65,7 @@ Public Class Form3
         SIZE2 = 70
         TILE_SIZE2 = 400 / 70
         speed2 = 40
-        Form1.Show()
-        Form1.start()
+        Form2.Show()
         Me.Visible = False
         My.Computer.Audio.Stop()
     End Sub
