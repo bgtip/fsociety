@@ -38,6 +38,8 @@
     Public tilesimg(3) As Bitmap
     Public tilesColor(3) As Color
     Public snakeColors As Color()
+    Public normalColors As Color()
+    Public discoColors As Color()
 
     'Slangedataen. Eit array av punkt. Både x og y
     Public snake(snakeSize) As Point
@@ -168,7 +170,9 @@
         tilesColor(APPLE_TILE) = Color.Yellow
 
         'Setter opp fargane til snake.
-        snakeColors = New Color() {Color.White, Color.Gray, Color.FromArgb(255, 200, 200, 200), Color.FromArgb(255, 180, 180, 180), Color.FromArgb(255, 160, 160, 160), Color.FromArgb(255, 140, 140, 140), Color.FromArgb(255, 120, 120, 120), Color.FromArgb(255, 100, 100, 100)}
+        normalColors = New Color() {Color.White, Color.Gray, Color.FromArgb(255, 200, 200, 200), Color.FromArgb(255, 180, 180, 180), Color.FromArgb(255, 160, 160, 160), Color.FromArgb(255, 140, 140, 140), Color.FromArgb(255, 120, 120, 120), Color.FromArgb(255, 100, 100, 100)}
+        discoColors = New Color() {Color.Blue, Color.Red, Color.Pink, Color.Yellow, Color.White, Color.Green}
+        snakeColors = normalColors
 
         'Setter opp epleeffaktar
         appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed, AddressOf modeInvisible}
@@ -408,6 +412,8 @@
         'setter at slangen skal visast på skjermen.
         drawSnake = True
 
+        snakeColors = normalColors
+
         'Sjekkar for aktive effektar og kjøyrer dei.
         If activeEffect > -1 Then
             appleEffects(activeEffect)()
@@ -481,6 +487,7 @@
     'Funskjonen som blir brukt i trippy mode.
     Public Sub modeTrippy()
 
+        snakeColors = discoColors
         freq = Convert.ToInt16(Rnd() * 200) + 1
     End Sub
 

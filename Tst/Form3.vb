@@ -1,8 +1,8 @@
 ﻿Imports Tst.Game
 Public Class Form3
-    Public SIZE2 As Integer = 40
-    Public TILE_SIZE2 As Integer = 10
-    Public speed2 As Integer = 100
+    Public SIZE2 As Integer = 60
+    Public TILE_SIZE2 As Integer = 400 / 60
+    Public speed2 As Integer = 50
     Public modeChance As Single = 0.4
     Dim Mode1 As Image = Image.FromFile("easy1.png")
     Dim Mode2 As Image = Image.FromFile("hard.png")
@@ -104,5 +104,9 @@ Public Class Form3
         Else
             Form1.sound.soundOn = True
         End If
+    End Sub
+
+    Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
