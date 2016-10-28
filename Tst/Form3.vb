@@ -1,5 +1,5 @@
 ﻿Imports Tst.Game
-Public Class Form3
+Public Class Something
     Public SIZE2 As Integer = 40
     Public TILE_SIZE2 As Integer = 10
     Public speed2 As Integer = 100
