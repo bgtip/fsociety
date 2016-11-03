@@ -31,14 +31,14 @@ Partial Class Form6
         Me.WebBrowser1.Location = New System.Drawing.Point(0, 0)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(282, 253)
+        Me.WebBrowser1.Size = New System.Drawing.Size(322, 312)
         Me.WebBrowser1.TabIndex = 0
         '
         'Form6
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(282, 253)
+        Me.ClientSize = New System.Drawing.Size(322, 312)
         Me.Controls.Add(Me.WebBrowser1)
         Me.Name = "Form6"
         Me.Text = "Form6"

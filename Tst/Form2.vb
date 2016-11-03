@@ -34,4 +34,8 @@
     Private Sub OnApplicationExit(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Closing
         Application.Exit()
     End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Process.Start("http://org.ntnu.no/fsociety27/game/score/score.txt")
+    End Sub
 End Class

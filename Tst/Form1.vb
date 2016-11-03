@@ -66,6 +66,7 @@ Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click  ' Knappen er ikkje heilt klar enno
         Button1.Enabled = False
         Button2.Enabled = False
+        Form6.Hide()
         start()
 
     End Sub
