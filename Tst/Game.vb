@@ -389,6 +389,9 @@
 
     'Spelaren tapar
     Public Sub Lose()
+
+        drawSnake = True
+        UpdateMap()
         lost = True
         sound.stopSound("music")
     End Sub
