@@ -43,6 +43,7 @@ Public Class Form1
             sound.playSound("sound/fx/oneshot/lose.wav", "soundeffects")
             MsgBox("Du tapte!!!")
             Button1.Enabled = True
+            Button2.Enabled = True
         End If
 
         If game.closing Then
@@ -64,11 +65,16 @@ Public Class Form1
     'Når brukaren klikkar på reset knappen. Resetter spelet
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click  ' Knappen er ikkje heilt klar enno
         Button1.Enabled = False
+        Button2.Enabled = False
         start()
 
     End Sub
 
     Private Sub SoundTimer_Tick(sender As Object, e As EventArgs) Handles SoundTimer.Tick
         game.stTick()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Form6.Show()
     End Sub
 End Class
