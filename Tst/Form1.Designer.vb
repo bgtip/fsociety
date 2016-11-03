@@ -26,8 +26,8 @@ Partial Class Form1
         Me.Ticker = New System.Windows.Forms.Timer(Me.components)
         Me.Canvas = New System.Windows.Forms.Panel()
         Me.Score = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.SoundTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Ticker
@@ -36,41 +36,54 @@ Partial Class Form1
         '
         'Canvas
         '
-        Me.Canvas.Location = New System.Drawing.Point(12, 12)
+        Me.Canvas.Location = New System.Drawing.Point(82, 68)
+        Me.Canvas.Margin = New System.Windows.Forms.Padding(4)
         Me.Canvas.Name = "Canvas"
-        Me.Canvas.Size = New System.Drawing.Size(476, 409)
+        Me.Canvas.Size = New System.Drawing.Size(452, 438)
         Me.Canvas.TabIndex = 0
         '
         'Score
         '
         Me.Score.AutoSize = True
-        Me.Score.Location = New System.Drawing.Point(494, 12)
+        Me.Score.BackColor = System.Drawing.Color.Transparent
+        Me.Score.ForeColor = System.Drawing.Color.White
+        Me.Score.Location = New System.Drawing.Point(646, 55)
+        Me.Score.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Score.Name = "Score"
-        Me.Score.Size = New System.Drawing.Size(50, 13)
+        Me.Score.Size = New System.Drawing.Size(65, 17)
         Me.Score.TabIndex = 1
         Me.Score.Text = "Poeng: 0"
-        '
-        'Button1
-        '
-        Me.Button1.Enabled = False
-        Me.Button1.Location = New System.Drawing.Point(497, 398)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Reset"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'SoundTimer
         '
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.Enabled = False
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.ForeColor = System.Drawing.Color.Transparent
+        Me.Button1.Location = New System.Drawing.Point(611, 442)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(100, 28)
+        Me.Button1.TabIndex = 2
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(586, 434)
+        Me.BackgroundImage = Global.Tst.My.Resources.Resources.formonebg1
+        Me.ClientSize = New System.Drawing.Size(781, 534)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Score)
         Me.Controls.Add(Me.Canvas)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
@@ -81,6 +94,6 @@ Partial Class Form1
     Friend WithEvents Ticker As Timer
     Friend WithEvents Canvas As Panel
     Friend WithEvents Score As Label
-    Friend WithEvents Button1 As Button
     Friend WithEvents SoundTimer As Timer
+    Friend WithEvents Button1 As Button
 End Class

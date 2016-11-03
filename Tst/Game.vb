@@ -180,7 +180,7 @@
 
         'Setter opp epleeffaktar
         appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed, AddressOf modeInvisible, AddressOf modeNewStone, AddressOf modeMsgBox}
-        effectImages = New Image() {New Bitmap("ModeTrippy.png"), New Bitmap("ModeSuperspeed.png"), New Bitmap("ModeInvisible.png"), Nothing, Nothing}
+        effectImages = New Image() {New Bitmap("trippy.png"), New Bitmap("Superspeed.png"), New Bitmap("glitchy.png"), Nothing, Nothing}
         effectSounds = New String() {"sound/music/trippy.wav", "sound/music/speed.wav", "sound/music/glitch.wav", "", ""}
         playSound = False
 

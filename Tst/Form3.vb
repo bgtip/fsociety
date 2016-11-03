@@ -9,13 +9,6 @@ Public Class Form3
     Dim Mode3 As Image = Image.FromFile("insane.png")
     Dim standard As Image = Image.FromFile("cyka.png")
 
-
-    'Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    '    Me.PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-    '    Me.PictureBox1.BackgroundImage = standard
-    'End Sub
-
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'går tilbake til hovedmenyen
         Form2.Show()
         Me.Visible = False
@@ -57,25 +50,6 @@ Public Class Form3
     End Sub
 
     Private Sub Button3_Mouseleave(sender As Object, e As EventArgs) Handles Button3.MouseLeave
-        Me.PictureBox1.Image = standard
-        Me.PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-    End Sub
-
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click  ' skyfter til mode 3
-        SIZE2 = 70
-        TILE_SIZE2 = 400 / 70
-        speed2 = 40
-        Form2.Show()
-        Me.Visible = False
-        My.Computer.Audio.Stop()
-    End Sub
-
-    Private Sub Button4_MouseHover(sender As Object, e As EventArgs) Handles Button4.MouseHover
-        Me.PictureBox1.Image = Mode3
-        Me.PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-    End Sub
-
-    Private Sub Button4_Mouseleave(sender As Object, e As EventArgs) Handles Button4.MouseLeave
         Me.PictureBox1.Image = standard
         Me.PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
     End Sub
