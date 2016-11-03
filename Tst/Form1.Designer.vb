@@ -38,7 +38,7 @@ Partial Class Form1
         'Canvas
         '
         Me.Canvas.Location = New System.Drawing.Point(100, 79)
-        Me.Canvas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Canvas.Margin = New System.Windows.Forms.Padding(4)
         Me.Canvas.Name = "Canvas"
         Me.Canvas.Size = New System.Drawing.Size(533, 492)
         Me.Canvas.TabIndex = 0
@@ -48,7 +48,7 @@ Partial Class Form1
         Me.Score.AutoSize = True
         Me.Score.BackColor = System.Drawing.Color.Transparent
         Me.Score.ForeColor = System.Drawing.Color.White
-        Me.Score.Location = New System.Drawing.Point(645, 55)
+        Me.Score.Location = New System.Drawing.Point(688, 79)
         Me.Score.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Score.Name = "Score"
         Me.Score.Size = New System.Drawing.Size(65, 17)
@@ -68,35 +68,39 @@ Partial Class Form1
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.ForeColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(784, 535)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Location = New System.Drawing.Point(691, 535)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(117, 36)
+        Me.Button1.Size = New System.Drawing.Size(126, 36)
         Me.Button1.TabIndex = 2
         Me.Button1.UseVisualStyleBackColor = False
         '
         'Button2
         '
+        Me.Button2.BackColor = System.Drawing.Color.Transparent
         Me.Button2.Enabled = False
-        Me.Button2.Location = New System.Drawing.Point(803, 499)
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Location = New System.Drawing.Point(691, 464)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(115, 29)
+        Me.Button2.Size = New System.Drawing.Size(153, 41)
         Me.Button2.TabIndex = 3
-        Me.Button2.Text = "Submit score"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.Tst.My.Resources.Resources.formonebg1
+        Me.BackgroundImage = Global.Tst.My.Resources.Resources.formOne2
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1016, 647)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Score)
         Me.Controls.Add(Me.Canvas)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)

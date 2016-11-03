@@ -93,6 +93,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property formOne2() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("formOne2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property formOnebg() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("formOnebg", resourceCulture)
@@ -106,6 +116,16 @@ Namespace My.Resources
         Friend ReadOnly Property formonebg1() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("formonebg1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property gameStart() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("gameStart", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

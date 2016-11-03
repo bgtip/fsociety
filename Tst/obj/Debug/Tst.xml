@@ -53,12 +53,22 @@ Tst
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Tst.My.Resources.Resources.formOne2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Tst.My.Resources.Resources.formOnebg">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Tst.My.Resources.Resources.formonebg1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Tst.My.Resources.Resources.gameStart">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
