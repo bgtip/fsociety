@@ -1,5 +1,6 @@
 ﻿Imports Tst.Game
 Public Class Form3
+    Dim buttonExit = Keys.Escape
     Public SIZE2 As Integer = 60
     Public TILE_SIZE2 As Integer = 400 / 60
     Public speed2 As Integer = 50
@@ -78,6 +79,13 @@ Public Class Form3
         Else
             Form1.sound.soundOn = True
         End If
+    End Sub
+    Sub keyUpdate(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+        Select Case e.KeyCode
+            Case buttonExit
+                Form2.Show()
+                Me.Visible = False
+        End Select
     End Sub
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load

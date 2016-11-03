@@ -50,6 +50,7 @@ Partial Class Form4
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(752, 583)
         Me.Controls.Add(Me.Button1)
+        Me.KeyPreview = True
         Me.Name = "Form4"
         Me.Text = "Form4"
         Me.ResumeLayout(False)
