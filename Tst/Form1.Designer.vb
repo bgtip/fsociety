@@ -36,10 +36,9 @@ Partial Class Form1
         '
         'Canvas
         '
-        Me.Canvas.Location = New System.Drawing.Point(82, 68)
-        Me.Canvas.Margin = New System.Windows.Forms.Padding(4)
+        Me.Canvas.Location = New System.Drawing.Point(62, 55)
         Me.Canvas.Name = "Canvas"
-        Me.Canvas.Size = New System.Drawing.Size(452, 438)
+        Me.Canvas.Size = New System.Drawing.Size(339, 356)
         Me.Canvas.TabIndex = 0
         '
         'Score
@@ -47,10 +46,9 @@ Partial Class Form1
         Me.Score.AutoSize = True
         Me.Score.BackColor = System.Drawing.Color.Transparent
         Me.Score.ForeColor = System.Drawing.Color.White
-        Me.Score.Location = New System.Drawing.Point(646, 55)
-        Me.Score.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Score.Location = New System.Drawing.Point(484, 45)
         Me.Score.Name = "Score"
-        Me.Score.Size = New System.Drawing.Size(65, 17)
+        Me.Score.Size = New System.Drawing.Size(50, 13)
         Me.Score.TabIndex = 1
         Me.Score.Text = "Poeng: 0"
         '
@@ -67,23 +65,22 @@ Partial Class Form1
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.ForeColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(611, 442)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button1.Location = New System.Drawing.Point(458, 359)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 28)
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 2
         Me.Button1.UseVisualStyleBackColor = False
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Tst.My.Resources.Resources.formonebg1
-        Me.ClientSize = New System.Drawing.Size(781, 534)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(586, 434)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Score)
         Me.Controls.Add(Me.Canvas)
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
