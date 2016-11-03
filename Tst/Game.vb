@@ -509,7 +509,7 @@
         Using g As Graphics = Canvas.CreateGraphics()
             screenImgPoint.X = (SIZE * TILE_SIZE) / 2 - 100
 
-            g.DrawImage(img, screenImgPoint)
+            g.DrawImage(img, screenImgPoint.X, screenImgPoint.Y, 200, 200)
         End Using
     End Sub
 
