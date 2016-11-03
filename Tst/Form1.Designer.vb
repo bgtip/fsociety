@@ -36,9 +36,9 @@ Partial Class Form1
         '
         'Canvas
         '
-        Me.Canvas.Location = New System.Drawing.Point(62, 55)
+        Me.Canvas.Location = New System.Drawing.Point(75, 64)
         Me.Canvas.Name = "Canvas"
-        Me.Canvas.Size = New System.Drawing.Size(339, 356)
+        Me.Canvas.Size = New System.Drawing.Size(400, 400)
         Me.Canvas.TabIndex = 0
         '
         'Score
@@ -65,9 +65,9 @@ Partial Class Form1
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.ForeColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(458, 359)
+        Me.Button1.Location = New System.Drawing.Point(588, 435)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.Size = New System.Drawing.Size(88, 29)
         Me.Button1.TabIndex = 2
         Me.Button1.UseVisualStyleBackColor = False
         '
@@ -77,7 +77,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Tst.My.Resources.Resources.formonebg1
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(586, 434)
+        Me.ClientSize = New System.Drawing.Size(762, 526)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Score)
         Me.Controls.Add(Me.Canvas)

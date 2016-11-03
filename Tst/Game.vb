@@ -162,6 +162,9 @@
         tiles(APPLE_TILE) = BG2IMG
 
 
+        TILE_SIZE = Convert.ToInt32(Canvas.Width / SIZE)
+
+
         'Setter opp referansar til bildet i eit array
         'tilesimg(NO_TILE) = New Bitmap(BG0IMG)
         'tilesimg(SNAKE_TILE) = New Bitmap(BG1IMG)
