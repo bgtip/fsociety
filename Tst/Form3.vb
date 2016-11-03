@@ -21,6 +21,8 @@ Public Class Form3
         Form2.Show()
         Me.Visible = False
         My.Computer.Audio.Stop()
+        Form1.sound.playSound("sound/fx/happymeal.wav", "talking")
+
     End Sub
 
     Private Sub Button2_MouseHover(sender As Object, e As EventArgs) Handles Button2.MouseHover
@@ -39,6 +41,7 @@ Public Class Form3
         Form2.Show()
         Me.Visible = False
         My.Computer.Audio.Stop()
+        Form1.sound.playSound("sound/fx/hard.wav", "talking")
     End Sub
 
     Private Sub Button3_MouseHover(sender As Object, e As EventArgs) Handles Button3.MouseHover

@@ -338,26 +338,27 @@
         If snake(0).Equals(applePoint) Then
             'Finner ny posisjon til eplet
             setNewApple()
-            modeNewStone()
-
+            If effectChance < 1 Then
+                modeNewStone()
+            End If
 
             'Random effect
             Dim vrnd As Single = Rnd()
-            If vrnd > effectChance Then
-                playSound = True
-                activeEffect = Convert.ToInt32((appleEffects.Length - 1) * Rnd())
-            Else
-                playSound = True
-                activeEffect = -1
-            End If
+                If vrnd > effectChance Then
+                    playSound = True
+                    activeEffect = Convert.ToInt32((appleEffects.Length - 1) * Rnd())
+                Else
+                    playSound = True
+                    activeEffect = -1
+                End If
 
-            Array.Resize(snake, snake.Length + 1)
-            snake(snake.Length - 1) = New Point(snake(snake.Length - 2).X, snake(snake.Length - 2).Y)
-            snakeSize = snakeSize + 1
-            score += 1
-            eple = True
-        End If
-        ready = True
+                Array.Resize(snake, snake.Length + 1)
+                snake(snake.Length - 1) = New Point(snake(snake.Length - 2).X, snake(snake.Length - 2).Y)
+                snakeSize = snakeSize + 1
+                score += 1
+                eple = True
+            End If
+            ready = True
     End Sub
 
     'Setter eplet på ein ny random plass
