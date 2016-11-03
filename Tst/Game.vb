@@ -2,7 +2,7 @@
     'Public Const SIZE As Integer = 30 ' Størrelse på spilleområde. Både vidde og høgde. I tiles
     Dim SIZE = Form3.SIZE2 'Størrelsen på spillområdet, satt ut i fra spillerens valg i options.
     'Public Const TILE_SIZE As Integer = 10 'Størrelse på kvar tile, i pikslar
-    Dim TILE_SIZE = Form3.TILE_SIZE2
+    Dim TILE_SIZE = 0
     'Public speed As Integer = 100
     Dim speed = Form3.speed2
 
@@ -30,9 +30,9 @@
     'Dim snakeSize = Form3.snakeSize2
 
     'Array på grafikkgreiene, brukar picturebox. Vanlegvis ikkje i bruk.
-    Public graphic_map(SIZE, SIZE) As PictureBox
+    Public graphic_map(Size, Size) As PictureBox
     'Array på kva tile er kor. Eit rutenett.
-    Public data_map(SIZE, SIZE) As Integer
+    Public data_map(Size, Size) As Integer
 
     'Data på bildene.
     Public tiles(4) As String
@@ -161,6 +161,7 @@
         tiles(SNAKE_TILE) = BG1IMG
         tiles(APPLE_TILE) = BG2IMG
 
+        'MsgBox(SIZE)
 
         TILE_SIZE = Convert.ToInt32(Canvas.Width / SIZE)
 
@@ -182,9 +183,9 @@
         snakeColors = normalColors
 
         'Setter opp epleeffaktar
-        appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed, AddressOf modeInvisible, AddressOf modeNewStone, AddressOf modeMsgBox}
-        effectImages = New Image() {New Bitmap("trippy.png"), New Bitmap("Superspeed.png"), New Bitmap("glitchy.png"), Nothing, Nothing}
-        effectSounds = New String() {"sound/music/trippy.wav", "sound/music/speed.wav", "sound/music/glitch.wav", "", ""}
+        appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed, AddressOf modeInvisible, AddressOf modeMsgBox}
+        effectImages = New Image() {New Bitmap("trippy.png"), New Bitmap("Superspeed.png"), New Bitmap("glitchy.png"), Nothing}
+        effectSounds = New String() {"sound/music/trippy.wav", "sound/music/speed.wav", "sound/music/glitch.wav", ""}
         playSound = False
 
         Canvas.Size = New Size(SIZE * TILE_SIZE, SIZE * TILE_SIZE)
@@ -337,6 +338,8 @@
         If snake(0).Equals(applePoint) Then
             'Finner ny posisjon til eplet
             setNewApple()
+            modeNewStone()
+
 
             'Random effect
             Dim vrnd As Single = Rnd()
