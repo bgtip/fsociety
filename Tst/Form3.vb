@@ -1,8 +1,8 @@
 ﻿Imports Tst.Game
 Public Class Form3
     Dim buttonExit = Keys.Escape
-    Public SIZE2 As Integer = 60
-    Public TILE_SIZE2 As Integer = 400 / 60
+    Public SIZE2 As Integer = 40
+    Public TILE_SIZE2 As Integer = 10
     Public speed2 As Integer = 50
     Public modeChance As Single = 0.4
     Dim Mode1 As Image = Image.FromFile("easy1.png")
@@ -16,8 +16,6 @@ Public Class Form3
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click ' skyfter til mode 1 (normal mode)
-        SIZE2 = 40
-        TILE_SIZE2 = 10
         speed2 = 100
         modeChance = 1.1 'Ingen sjanse for eple effektar.
         Form2.Show()
@@ -36,8 +34,6 @@ Public Class Form3
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click  ' skyfter til mode 2
-        SIZE2 = 60
-        TILE_SIZE2 = 400 / 60
         speed2 = 50
         modeChance = 0.4
         Form2.Show()
