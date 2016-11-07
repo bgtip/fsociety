@@ -10,7 +10,6 @@ Public Class Form1
     Public Sub start() 'Når funksjonen kalles vil spillet starte. Spillet initialiseres
         game = New Game()
 
-        'sound.playSound("fsoc-trippy.wav", "music")
         game.init(Canvas, Ticker, SoundTimer, sound)
     End Sub
 
@@ -36,6 +35,8 @@ Public Class Form1
             sound.playSound("sound/music/main.wav", "music")
             Me.Visible = False
             start()
+            Button1.Enabled = False
+            Button2.Enabled = False
         End If
 
         'Hvis brukaren tapar vil ein lyd speles av, samtidig som ei melding kjem opp. 
