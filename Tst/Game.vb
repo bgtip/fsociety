@@ -137,8 +137,8 @@
                 pause()
 
                 If msg = vbYes Then
-                    closing = True
                     sound.stopSound("music")
+                    closing = True
                 End If
 
         End Select

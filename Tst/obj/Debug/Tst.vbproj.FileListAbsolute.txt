@@ -41,7 +41,6 @@ C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.Form5.resources
 C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.Form4.resources
 C:\Users\Eier\Desktop\fsociety\Tst\obj\Debug\Tst.Form5.resources
 C:\fsociety\Tst\obj\Debug\Tst.Form4.resources
-C:\fsociety\Tst\obj\Debug\Tst.Form5.resources
 C:\Users\Gjovikli\Desktop\qwert\fsociety\Tst\obj\Debug\Tst.vbprojResolveAssemblyReference.cache
 C:\Users\datda\Documents\fsociety\Tst\bin\Debug\Tst.exe.config
 C:\Users\datda\Documents\fsociety\Tst\obj\Debug\Tst.exe

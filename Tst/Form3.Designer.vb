@@ -146,7 +146,7 @@ Partial Class Form3
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "Form3"
-        Me.Text = "Form3"
+        Me.Text = "fsociety27.dat - options"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

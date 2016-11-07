@@ -52,7 +52,7 @@ Partial Class Form4
         Me.Controls.Add(Me.Button1)
         Me.KeyPreview = True
         Me.Name = "Form4"
-        Me.Text = "Form4"
+        Me.Text = "fsociety27.dat - controls"
         Me.ResumeLayout(False)
 
     End Sub

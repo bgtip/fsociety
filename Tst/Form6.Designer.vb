@@ -41,7 +41,7 @@ Partial Class Form6
         Me.ClientSize = New System.Drawing.Size(322, 408)
         Me.Controls.Add(Me.WebBrowser1)
         Me.Name = "Form6"
-        Me.Text = "Form6"
+        Me.Text = "fsociety27.dat - score"
         Me.ResumeLayout(False)
 
     End Sub

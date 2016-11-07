@@ -102,7 +102,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Canvas)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "fsociety27.dat - game"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
