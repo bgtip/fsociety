@@ -60,7 +60,7 @@ Partial Class Form3
         Me.Button2.Location = New System.Drawing.Point(93, 96)
         Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(133, 34)
+        Me.Button2.Size = New System.Drawing.Size(92, 40)
         Me.Button2.TabIndex = 1
         Me.Button2.UseVisualStyleBackColor = False
         '
@@ -76,7 +76,7 @@ Partial Class Form3
         Me.Button3.Location = New System.Drawing.Point(93, 153)
         Me.Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(133, 34)
+        Me.Button3.Size = New System.Drawing.Size(92, 36)
         Me.Button3.TabIndex = 2
         Me.Button3.UseVisualStyleBackColor = False
         '
@@ -133,7 +133,7 @@ Partial Class Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.Tst.My.Resources.Resources.menu3
+        Me.BackgroundImage = Global.Tst.My.Resources.Resources.menu4
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(752, 583)
         Me.Controls.Add(Me.PictureBox1)
