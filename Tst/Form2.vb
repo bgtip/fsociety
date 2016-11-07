@@ -4,6 +4,7 @@
         Me.Visible = False
         My.Computer.Audio.Stop()
         Form1.start()
+        Form1.sound.playSound("sound/fx/game-start.wav", "talking")
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -36,6 +37,6 @@
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Process.Start("http://org.ntnu.no/fsociety27/game/score/score.txt")
+        Process.Start("http://org.ntnu.no/fsociety27/game/score/score.php")
     End Sub
 End Class

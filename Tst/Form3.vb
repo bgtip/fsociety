@@ -21,7 +21,7 @@ Public Class Form3
         Form2.Show()
         Me.Visible = False
         My.Computer.Audio.Stop()
-        Form1.sound.playSound("sound/fx/happymeal.wav", "talking")
+        Form1.sound.playSound("sound/fx/hapimil.wav", "talking")
 
     End Sub
 
