@@ -1,9 +1,11 @@
 ﻿Public Class Form4
     Dim buttonExit = Keys.Escape
+
     'Sørger for at spelet ikkje kjøyrar i bakgrunnen når det avsluttast
     Private Sub OnApplicationExit(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Closing
         Application.Exit()
     End Sub
+
     'Lukkar controls-vindet
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Form3.Show()

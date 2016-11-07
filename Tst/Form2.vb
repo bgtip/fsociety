@@ -1,7 +1,7 @@
 ﻿Public Class Form2
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'Starter spillet
-        'Start-knapp. Krever at brukeren trykker på knapp merket "Start". Et trykk i knappen resulterer i at Form1 (spill) vises, Form2 (som brukeren befinner seg i) skjules
-        'Main-musikken (som spilles av i hovedmeny) stopper, og funksjonene "start()" og "sound.playSound" aktiveres. 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'Start-knapp. Krevar at brukaren trykkar på knapp merka "Start". Eit trykk i knappen resulterar i at Form1 (spill) visast, Form2 (som brukeren befinner seg i) skjulas
+        'Main-musikken (som spilles av i hovedmeny) stoppar, og funksjonane "start()" og "sound.playSound" aktiveres. 
         Form1.Show()
         Me.Visible = False
         My.Computer.Audio.Stop()
@@ -9,39 +9,29 @@
         Form1.sound.playSound("sound/fx/game-start.wav", "talking")
     End Sub
 
+    'startar musikken når spelet lastast
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Settings-knapp. Et trykk i knappen resulterer at Form3 (settings-form) vises, og at Form2 (som brukeren befinner seg i) lukkes. 
-        'Main-musikken fortsetter å bli spilt av med funksjonen "sound.playSound"
         Form1.sound.playSound("sound/music/main.wav", "music")
-
-        'Her leses av valg som er satt i fila "config.txt". Disse valgene lastes så inn. 
-        Dim conf As String
-        conf = My.Computer.FileSystem.ReadAllText("config.txt")
-        Dim l = conf.IndexOf("speed=")
-        Dim speed = conf.Substring(l + 6, 3)
-        l = conf.IndexOf("tile_size=")
-        Dim tl = conf.Substring(l + 10, 2)
-        l = conf.IndexOf("map_size=")
-        Dim sz = conf.Substring(l + 9, 2)
-        Form3.SIZE2 = sz
-        Form3.TILE_SIZE2 = tl
     End Sub
 
-    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click 'Går til Options menyen
+    'Settings-knapp. Eit trykk i knappen resulterer at Form3 (settings-form) visast, og at Form2 (som brukeren befinner seg i) lukkes. 
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
         Form3.Show()
         Me.Visible = False
-        'My.Computer.Audio.Stop()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click 'Lukker spillet
+    'Lukkar spillet
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Close()
     End Sub
 
-    Private Sub OnApplicationExit(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Closing 'Lukker spillet helt når spillet "lukkes"
+    'Lukker spillet helt når spillet "lukkes"
+    Private Sub OnApplicationExit(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Closing
         Application.Exit()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click 'Åpner en nettside med scores i default browser
+    'Åpner en nettside med scores i default browser
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Process.Start("http://org.ntnu.no/fsociety27/game/score/score.php")
     End Sub
 End Class

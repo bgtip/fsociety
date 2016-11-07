@@ -1,15 +1,10 @@
 ﻿Public Class Game
-    'Public Const SIZE As Integer = 30 ' Størrelse på spilleområde. Både vidde og høgde. I tiles
     Dim SIZE = Form3.SIZE2 'Størrelsen på spillområdet, satt ut i fra spillerens valg i options.
-    'Public Const TILE_SIZE As Integer = 10 'Størrelse på kvar tile, i pikslar
     Dim TILE_SIZE = 0
-    'Public speed As Integer = 100
     Dim speed = Form3.speed2
 
     'Bilda som blir brukt i spelet
-    Public Const BG0IMG As String = "bg0.png"
-    Public Const BG1IMG As String = "bg1.png"
-    Public Const BG2IMG As String = "bg2.png"
+    Public Const BG0IMG As String = "img/game/chip.png"
 
     'Kva nummer kvar tile er
     Public Const NO_TILE As Integer = 0
@@ -26,8 +21,8 @@
     'Størrelsen på slangen
     Public snakeSize As Integer = 10
 
+    'Scoren etter lengde på slangen
     Public score As Integer = 0
-    'Dim snakeSize = Form3.snakeSize2
 
     'Array på grafikkgreiene, brukar picturebox. Vanlegvis ikkje i bruk.
     Public graphic_map(Size, Size) As PictureBox
@@ -51,7 +46,6 @@
 
 
     'Intervallet som alt blir oppdatert på. I millisekund
-    'Public speed As Integer = 100
     Public freq As Integer = speed
 
     Public stonePoint As List(Of Point) = New List(Of Point)
@@ -99,7 +93,7 @@
     Dim buttonLeft = Keys.Left
     Dim buttonPause = Keys.P
     Dim buttonExit = Keys.Escape
-    'Brukes for å forhindre at to knapper trykkes samtidig (aka krasj)
+    'Brukes for å forhindre at to knappar trykkast samtidig (aka krasj)
     Dim ko As Queue = New Queue()
 
     Dim keyState
@@ -160,22 +154,16 @@
         closing = False
 
         'Setter opp referansar til bildet i eit array. Blir brukt i picturebox grafikk greia
-        tiles(NO_TILE) = BG0IMG
-        tiles(SNAKE_TILE) = BG1IMG
-        tiles(APPLE_TILE) = BG2IMG
+        tiles(APPLE_TILE) = BG0IMG
 
         'MsgBox(SIZE)
-
         TILE_SIZE = Convert.ToInt32(Canvas.Width / SIZE)
 
         'Setter opp referansar til bildet i eit array
-        'tilesimg(NO_TILE) = New Bitmap(BG0IMG)
-        'tilesimg(SNAKE_TILE) = New Bitmap(BG1IMG)
-        tilesimg(APPLE_TILE) = New Bitmap(BG2IMG)
+        tilesimg(APPLE_TILE) = New Bitmap(BG0IMG)
 
         'Setter opp fargar til tilane
         tilesColor(NO_TILE) = Color.Black
-        'tilesColor(SNAKE_TILE) = Color.Pink
         tilesColor(APPLE_TILE) = Color.Yellow
         tilesColor(STONE_TILE) = Color.Gray
 
@@ -186,7 +174,7 @@
 
         'Setter opp epleeffaktar
         appleEffects = New Action() {AddressOf modeTrippy, AddressOf modeSuperspeed, AddressOf modeInvisible, AddressOf modeMsgBox}
-        effectImages = New Image() {New Bitmap("trippy.png"), New Bitmap("Superspeed.png"), New Bitmap("glitchy.png"), Nothing}
+        effectImages = New Image() {New Bitmap("img/game/trippy.png"), New Bitmap("img/game/superspeed.png"), New Bitmap("img/game/glitchy.png"), Nothing}
         effectSounds = New String() {"sound/music/trippy.wav", "sound/music/speed.wav", "sound/music/glitch.wav", ""}
         playSound = False
 
@@ -241,7 +229,6 @@
             g.Clear(tilesColor(NO_TILE))
             For x As Integer = 0 To SIZE - 1
                 For y As Integer = 0 To SIZE - 1
-                    'g.DrawImage(tilesimg(data_map(x, y)), New Point(x * TILE_SIZE, y * TILE_SIZE))
                     If data_map(x, y) <> 0 Then
 
                         'Om det er definert eit bilde, blir det brukt.
@@ -366,8 +353,8 @@
         Dim chance As Double = 0.01
         Dim found As Boolean = False
 
-        Dim x
-        Dim y
+        Dim x = 0
+        Dim y = 0
 
         While True
             x = ((SIZE - 1) * Rnd())
@@ -419,7 +406,6 @@
 
         ko.Clear()
 
-
         'Sjekkar om slangen kolliderar med seg sjølv. Om den gjer, tapar spelaren.
         For i As Integer = 1 To snakeSize - 1
             If snake(0) = snake(i) Then
@@ -453,10 +439,7 @@
                 drawScreenImage(effectImages(activeEffect))
             End If
             If playSound And effectSounds(activeEffect).Length > 0 Then
-                'MsgBox("bbb2")
-
                 sound.playSound(effectSounds(activeEffect), "music")
-
                 playSound = False
             End If
 
@@ -482,17 +465,13 @@
     'Returnerer True da slangen nettop har ete eit eple.
     Public Function gotApple() As Boolean
         Dim temp As Boolean = eple
-
         eple = False
-
         Return temp
     End Function
 
     'Pauser spelet. Eller setter spelet til ikkje pause.
     Public Function pause() As Boolean
-
         timer.Enabled = Not timer.Enabled()
-
         If timer.Enabled <> True Then
             Using g As Graphics = Canvas.CreateGraphics()
 
@@ -503,7 +482,6 @@
                 g.FillRectangle(b, Convert.ToInt32((SIZE * TILE_SIZE) / 2 - (SIZE * TILE_SIZE) / 4) * 2, Convert.ToInt32((SIZE * TILE_SIZE) / 2 - (SIZE * TILE_SIZE) / 4), Convert.ToInt32((SIZE * TILE_SIZE) / 6), Convert.ToInt32((SIZE * TILE_SIZE) / 2))
             End Using
         End If
-
 
         Return timer.Enabled
     End Function
@@ -519,36 +497,33 @@
 
     'Funskjonen som blir brukt i trippy mode.
     Public Sub modeTrippy()
-
         snakeColors = discoColors
         freq = Convert.ToInt16(Rnd() * 200) + 1
     End Sub
 
     'Funksjonen som blir brukt i superspeed mode.
     Public Sub modeSuperspeed()
-
         freq = 25
     End Sub
 
-    'Funksjonen som blir brukt i invisible mode.
+    'Funksjonen som blir brukt i glitch-mode
     Public Sub modeInvisible()
         drawSnake = False
         invi = invi + 1
 
         If invi > 10 Then
-            'MsgBox(invi & "    " & invit)
             drawSnake = True
             invi = 0
         End If
 
     End Sub
 
-    'Ny Stein modus
+    'Stein modus, legger ut steiner på tilfeldige plasser på spillebrettet
     Public Sub modeNewStone()
         Dim chance As Double = 0.01
 
-        Dim x
-        Dim y
+        Dim x = 0
+        Dim y = 0
 
         While True
             x = ((SIZE - 1) * Rnd())
@@ -562,10 +537,7 @@
         stonePoint.Add(New Point(x, y))
         Console.WriteLine(x, y)
         data_map(x, y) = STONE_TILE
-
         activeEffect = -1
-        'MsgBox("Heisan!" & x & "   " & y)
-
     End Sub
 
     'Troll message box

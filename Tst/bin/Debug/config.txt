@@ -1,3 +1,0 @@
-speed=100
-tile_size=10
-map_size=40

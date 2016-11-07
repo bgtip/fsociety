@@ -5,10 +5,9 @@ Public Class Form3
     Public TILE_SIZE2 As Integer = 10
     Public speed2 As Integer = 50
     Public modeChance As Single = 0.4
-    Dim Mode1 As Image = Image.FromFile("easy.png")
-    Dim Mode2 As Image = Image.FromFile("hard.png")
-    'Dim Mode3 As Image = Image.FromFile("insane.png") 'brukast ikkje
-    Dim standard As Image = Image.FromFile("cyka.png")
+    Dim Mode1 As Image = Image.FromFile("img/settings/easy.png")
+    Dim Mode2 As Image = Image.FromFile("img/settings/hard.png")
+    Dim standard As Image = Image.FromFile("img/settings/cyka.png")
 
     'Går tilbake til hovedmenyen
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
