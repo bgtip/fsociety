@@ -1,5 +1,7 @@
 ﻿Public Class Form2
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'Starter spillet
+        'Start-knapp. Krever at brukeren trykker på knapp merket "Start". Et trykk i knappen resulterer i at Form1 (spill) vises, Form2 (som brukeren befinner seg i) skjules
+        'Main-musikken (som spilles av i hovedmeny) stopper, og funksjonene "start()" og "sound.playSound" aktiveres. 
         Form1.Show()
         Me.Visible = False
         My.Computer.Audio.Stop()
@@ -8,8 +10,11 @@
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Settings-knapp. Et trykk i knappen resulterer at Form3 (settings-form) vises, og at Form2 (som brukeren befinner seg i) lukkes. 
+        'Main-musikken fortsetter å bli spilt av med funksjonen "sound.playSound"
         Form1.sound.playSound("sound/music/main.wav", "music")
 
+        'Her leses av valg som er satt i fila "config.txt". Disse valgene lastes så inn. 
         Dim conf As String
         conf = My.Computer.FileSystem.ReadAllText("config.txt")
         Dim l = conf.IndexOf("speed=")
@@ -32,11 +37,11 @@
         Me.Close()
     End Sub
 
-    Private Sub OnApplicationExit(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Closing
+    Private Sub OnApplicationExit(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Closing 'Lukker spillet helt når spillet "lukkes"
         Application.Exit()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click 'Åpner en nettside med scores i default browser
         Process.Start("http://org.ntnu.no/fsociety27/game/score/score.php")
     End Sub
 End Class

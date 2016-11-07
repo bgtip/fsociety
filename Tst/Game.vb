@@ -84,7 +84,6 @@
 
     Public screenImgPoint As Point = New Point(0, 0)
 
-
     Public Canvas As Panel
     Public timer As Timer
 
@@ -165,7 +164,6 @@
 
         TILE_SIZE = Convert.ToInt32(Canvas.Width / SIZE)
 
-
         'Setter opp referansar til bildet i eit array
         'tilesimg(NO_TILE) = New Bitmap(BG0IMG)
         'tilesimg(SNAKE_TILE) = New Bitmap(BG1IMG)
@@ -232,9 +230,7 @@
         For Each o In stonePoint
             data_map(o.X, o.Y) = STONE_TILE
             Console.WriteLine("Stones")
-
         Next
-
 
         data_map(applePoint.X, applePoint.Y) = APPLE_TILE
         Using g As Graphics = Canvas.CreateGraphics()
@@ -326,7 +322,7 @@
             data_map(snake(i).X, snake(i).Y) = SNAKE_TILE
         Next
 
-
+        'Om hodet til slangen rørar ein plass på spelet som allereie er oppteken (stein, seg sjøl) tapar brukaren
         For Each o In stonePoint
             If snake(0).Equals(o) Then
                 Lose()
@@ -383,13 +379,10 @@
         Console.WriteLine(x, y)
         found = True
         data_map(x, y) = APPLE_TILE
-
-
     End Sub
 
     'Spelaren tapar
     Public Sub Lose()
-
         drawSnake = True
         UpdateMap()
         lost = True
@@ -458,10 +451,7 @@
             If playSound And effectSounds(activeEffect).Length > 0 Then
                 'MsgBox("bbb2")
 
-
                 sound.playSound(effectSounds(activeEffect), "music")
-
-
 
                 playSound = False
             End If
@@ -576,12 +566,8 @@
 
     'Troll message box
     Public Sub modeMsgBox()
-
-        Dim msg As String() = New String() {"Heisan!", "You suck!", "I am the best!", "Snake!"}
+        Dim msg As String() = New String() {"Heisann!", "You suck!", "I am the best!", "Snake!", "Get rekt!", "Peek-a-boo!", "Shoutout til Hytt&Pine!", "Psyched!", "Control is an illusion."}
         activeEffect = -1
         MsgBox(msg(Convert.ToInt32(Rnd() * (msg.Length - 1))), )
-
     End Sub
-
-
 End Class

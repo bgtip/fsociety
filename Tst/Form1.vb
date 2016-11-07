@@ -7,37 +7,30 @@ Public Class Form1
     Public sound As Sound = New Sound()
 
 
-    Public Sub start()
+    Public Sub start() 'Når funksjonen kalles vil spillet starte. Spillet initialiseres
         game = New Game()
 
         'sound.playSound("fsoc-trippy.wav", "music")
         game.init(Canvas, Ticker, SoundTimer, sound)
     End Sub
 
-
+    'Viser melding når spelet avsluttast
     Private Sub OnApplicationExit(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Closing
         MsgBox("Thanks for playing!")
         Application.Exit()
-    End Sub
-    'Funskjonen som køyrer da spelet startar
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
     End Sub
 
     'Sjekkar om brukaren trykker på knappar
     Sub Form1_KeyPress(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
         game.keyUpdate(sender, e)
-
-
-
     End Sub
-
 
     'Funksjonen som håndterar oppdatering av spelet
     Private Sub Tick(sender As Object, e As EventArgs) Handles Ticker.Tick
         game.Tick(sender, e)
 
+        'Hvis brukaren tapar vil ein lyd speles av, samtidig som ei melding kjem opp. 
+        'Submit-og reset- knappane blir så aktive. 
         If game.lost Then
             Ticker.Enabled = False
             sound.playSound("sound/fx/oneshot/lose.wav", "soundeffects")
@@ -46,6 +39,7 @@ Public Class Form1
             Button2.Enabled = True
         End If
 
+        'Lukkar spel-vindauget, speler av main-musikken og åpnar hoved-meny. 
         If game.closing Then
             Form2.Show()
             sound.playSound("sound/music/main.wav", "music")
@@ -53,12 +47,15 @@ Public Class Form1
             start()
         End If
 
+        'Speler av lyd når slangen eter eit eple
         If game.gotApple() Then
             sound.playSound("sound/fx/oneshot/eat.wav", "soundeffects")
         End If
 
+        'Oppdaterar scoren som visast for brukaren
         Score.Text = "Poeng: " & game.getScore()
 
+        'Ekstern variabel som styrar kor fort spelet går
         Ticker.Interval = game.freq
     End Sub
 
@@ -68,13 +65,14 @@ Public Class Form1
         Button2.Enabled = False
         Form6.Hide()
         start()
-
     End Sub
 
+    'Tick for lyd-avspelinga
     Private Sub SoundTimer_Tick(sender As Object, e As EventArgs) Handles SoundTimer.Tick
         game.stTick()
     End Sub
 
+    'Gjør at brukaren ikkje kan submitte score i "easy"-mode. Gir melding til brukaren om ein forsøker. 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         If game.effectChance < 1 Then
             Form6.Show()
