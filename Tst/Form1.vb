@@ -76,6 +76,10 @@ Public Class Form1
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Form6.Show()
+        If game.effectChance < 1 Then
+            Form6.Show()
+        Else
+            MsgBox("You cannot submit your highscore in easy mode!")
+        End If
     End Sub
 End Class
