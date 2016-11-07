@@ -132,9 +132,13 @@
             Case buttonPause
                 pause()
             Case buttonExit
-                pause()
+                If Not lost Then
+                    pause()
+                End If
                 Dim msg = MsgBox("Do you want to exit the game?", vbYesNo, "Yadda?")
+
                 pause()
+
 
                 If msg = vbYes Then
                     sound.stopSound("music")

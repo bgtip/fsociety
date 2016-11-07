@@ -29,6 +29,15 @@ Public Class Form1
     Private Sub Tick(sender As Object, e As EventArgs) Handles Ticker.Tick
         game.Tick(sender, e)
 
+
+        'Lukkar spel-vindauget, speler av main-musikken og åpnar hoved-meny. 
+        If game.closing Then
+            Form2.Show()
+            sound.playSound("sound/music/main.wav", "music")
+            Me.Visible = False
+            start()
+        End If
+
         'Hvis brukaren tapar vil ein lyd speles av, samtidig som ei melding kjem opp. 
         'Submit-og reset- knappane blir så aktive. 
         If game.lost Then
@@ -39,13 +48,6 @@ Public Class Form1
             Button2.Enabled = True
         End If
 
-        'Lukkar spel-vindauget, speler av main-musikken og åpnar hoved-meny. 
-        If game.closing Then
-            Form2.Show()
-            sound.playSound("sound/music/main.wav", "music")
-            Me.Visible = False
-            start()
-        End If
 
         'Speler av lyd når slangen eter eit eple
         If game.gotApple() Then
