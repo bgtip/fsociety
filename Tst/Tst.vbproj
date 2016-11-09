@@ -46,6 +46,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>fsoc27.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -211,6 +214,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\menu4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fsoc27.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

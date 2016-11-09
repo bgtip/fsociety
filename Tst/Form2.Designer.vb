@@ -111,6 +111,7 @@ Partial Class Form2
         Me.MaximumSize = New System.Drawing.Size(767, 629)
         Me.MinimumSize = New System.Drawing.Size(767, 629)
         Me.Name = "Form2"
+        Me.ShowIcon = False
         Me.Text = "fsociety27.dat"
         Me.ResumeLayout(False)
 

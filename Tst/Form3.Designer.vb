@@ -150,6 +150,7 @@ Partial Class Form3
         Me.MaximumSize = New System.Drawing.Size(770, 630)
         Me.MinimumSize = New System.Drawing.Size(770, 630)
         Me.Name = "Form3"
+        Me.ShowIcon = False
         Me.Text = "fsociety27.dat - options"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

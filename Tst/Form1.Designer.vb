@@ -38,7 +38,7 @@ Partial Class Form1
         'Canvas
         '
         Me.Canvas.Location = New System.Drawing.Point(100, 79)
-        Me.Canvas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Canvas.Margin = New System.Windows.Forms.Padding(4)
         Me.Canvas.Name = "Canvas"
         Me.Canvas.Size = New System.Drawing.Size(533, 492)
         Me.Canvas.TabIndex = 0
@@ -69,7 +69,7 @@ Partial Class Form1
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.ForeColor = System.Drawing.Color.Transparent
         Me.Button1.Location = New System.Drawing.Point(691, 535)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(125, 36)
         Me.Button1.TabIndex = 2
@@ -102,11 +102,12 @@ Partial Class Form1
         Me.Controls.Add(Me.Score)
         Me.Controls.Add(Me.Canvas)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(1038, 698)
         Me.MinimumSize = New System.Drawing.Size(1038, 698)
         Me.Name = "Form1"
+        Me.ShowIcon = False
         Me.Text = "fsociety27.dat - game"
         Me.ResumeLayout(False)
         Me.PerformLayout()

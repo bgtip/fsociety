@@ -57,6 +57,7 @@ Partial Class Form4
         Me.MaximumSize = New System.Drawing.Size(770, 630)
         Me.MinimumSize = New System.Drawing.Size(770, 630)
         Me.Name = "Form4"
+        Me.ShowIcon = False
         Me.Text = "fsociety27.dat - controls"
         Me.ResumeLayout(False)
 
