@@ -1,0 +1,15 @@
+C:\Users\Eier\Desktop\fsociety\Tst\bin\Release\Tst.exe.config
+C:\Users\Eier\Desktop\fsociety\Tst\bin\Release\Tst.exe
+C:\Users\Eier\Desktop\fsociety\Tst\bin\Release\Tst.pdb
+C:\Users\Eier\Desktop\fsociety\Tst\bin\Release\Tst.xml
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Release\Tst.vbprojResolveAssemblyReference.cache
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Release\Tst.Form1.resources
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Release\Tst.Form2.resources
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Release\Tst.Form3.resources
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Release\Tst.Form4.resources
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Release\Tst.Form6.resources
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Release\Tst.Resources.resources
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Release\Tst.vbproj.GenerateResource.Cache
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Release\Tst.exe
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Release\Tst.xml
+C:\Users\Eier\Desktop\fsociety\Tst\obj\Release\Tst.pdb

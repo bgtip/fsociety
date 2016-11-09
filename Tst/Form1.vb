@@ -3,11 +3,12 @@ Imports WMPLib
 
 Public Class Form1
 
+    'Variablar for spill og lyd objeckta. Kontrollerer lyd og spellogikken.
     Public game As Game
     Public sound As Sound = New Sound()
 
-
-    Public Sub start() 'Når funksjonen kalles vil spillet starte. Spillet initialiseres
+    'Når funksjonen kalles vil spillet starte. Spillet initialiseres
+    Public Sub start()
         game = New Game()
 
         game.init(Canvas, Ticker, SoundTimer, sound)
@@ -26,6 +27,7 @@ Public Class Form1
 
     'Funksjonen som håndterar oppdatering av spelet
     Private Sub Tick(sender As Object, e As EventArgs) Handles Ticker.Tick
+        'Oppdaterer spel-objektet.
         game.Tick(sender, e)
 
 
@@ -75,7 +77,7 @@ Public Class Form1
         game.stTick()
     End Sub
 
-    'Gjør at brukaren ikkje kan submitte score i "easy"-mode. Gir melding til brukaren om ein forsøker. 
+    'Gjer at brukaren ikkje kan submitte score i "easy"-mode. Gir melding til brukaren om ein forsøker. 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         If game.effectChance < 1 Then
             Form6.Show()

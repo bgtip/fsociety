@@ -1,6 +1,7 @@
 ﻿Public Class Game
     Dim SIZE = Form3.SIZE2 'Størrelsen på spillområdet, satt ut i fra spillerens valg i options.
     Dim TILE_SIZE = 0
+    'Oppdateringsfrekvensen til spelet.
     Dim speed = Form3.speed2
 
     'Bilda som blir brukt i spelet
@@ -29,7 +30,7 @@
     'Array på kva tile er kor. Eit rutenett.
     Public data_map(Size, Size) As Integer
 
-    'Data på bildene.
+    'Data på bildene og fargane som høyrer til slangen og tile'ane.
     Public tiles(4) As String
     Public tilesimg(4) As Bitmap
     Public tilesColor(4) As Color
@@ -39,15 +40,19 @@
 
     'Slangedataen. Eit array av punkt. Både x og y
     Public snake(snakeSize) As Point
+
     'Kva rettning slangen har.
     Public direction As Integer
+    'Om slangen er klar til å endre rettning.
     Public ready As Boolean
+    'Om slangen skal teiknast på skjermen.
     Public drawSnake As Boolean
 
 
     'Intervallet som alt blir oppdatert på. I millisekund
     Public freq As Integer = speed
 
+    'Liste over punkta steinane er på.
     Public stonePoint As List(Of Point) = New List(Of Point)
 
     'Punktet der 'eplet' er på
@@ -55,14 +60,16 @@
 
     'Array av epleeffektar
     Public appleEffects As Action()
+    'Array av bilda som vises på ein effekt.
     Public effectImages As Image()
+    'Array av lydane som blir brukt på kvar effekt.
     Public effectSounds As String()
     Public playSound As Boolean
     'Den aktive effekten
     Public activeEffect As Integer = -1
     'Sjansen på å få ein effekt.
     Public effectChance As Single = Form3.modeChance
-    'Effektbilder
+    'Effektvariabler.
     Public trippyImg As Image
     Public invevrysec As Integer = 5000
     Public invi As Integer = 0
@@ -74,11 +81,14 @@
     Public stmax As Integer = 20000
     Public stsounds As String()
 
+    'Lydobjektet
     Public sound As Sound
 
     Public screenImgPoint As Point = New Point(0, 0)
 
+    'Panelet som spelet blir teikna på.
     Public Canvas As Panel
+    'Oppdateringstimeren.
     Public timer As Timer
 
     'Variabler som blir brukt uttafor.
@@ -542,7 +552,8 @@
 
     'Troll message box
     Public Sub modeMsgBox()
-        Dim msg As String() = New String() {"Heisann!", "You suck!", "I am the best!", "Snake!", "Get rekt!", "Peek-a-boo!", "Shoutout til Hytt&Pine!", "Psyched!", "Control is an illusion."}
+
+        Dim msg As String() = New String() {"Heisann!", "You suck!", "I am the best!", "Snake!", "Get rekt!", "Peek-a-boo!", "Shoutout til Hytt&Pine!", "Psyched!", "Control is an illusion.", "Aldri gå i deg sjølv", "Harambe did nothing wrong!"}
         activeEffect = -1
         MsgBox(msg(Convert.ToInt32(Rnd() * (msg.Length - 1))), )
     End Sub

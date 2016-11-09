@@ -8,6 +8,7 @@ Public Class Sound
     'Holder styr på kva lydkanalar som er aktive.
     Dim activeChannels As New Dictionary(Of String, Boolean)
 
+    'Om musikken og lyden er av eller på.
     Public musicOn As Boolean = True
     Public soundOn As Boolean = True
 

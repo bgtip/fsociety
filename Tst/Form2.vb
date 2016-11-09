@@ -1,5 +1,6 @@
 ﻿Public Class Form2
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
         'Start-knapp. Krevar at brukaren trykkar på knapp merka "Start". Eit trykk i knappen resulterar i at Form1 (spill) visast, Form2 (som brukeren befinner seg i) skjulas
         'Main-musikken (som spilles av i hovedmeny) stoppar, og funksjonane "start()" og "sound.playSound" aktiveres. 
         Form1.Show()
