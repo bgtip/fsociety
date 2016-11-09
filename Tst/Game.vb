@@ -139,7 +139,7 @@
                 If Not lost Then
                     pause()
                 End If
-                Dim msg = MsgBox("Do you want to exit the game?", vbYesNo, "Yadda?")
+                Dim msg = MsgBox("Do you want to exit to the menu?", vbYesNo, "fsociety27.dat")
 
                 pause()
 
@@ -555,6 +555,6 @@
 
         Dim msg As String() = New String() {"Heisann!", "You suck!", "I am the best!", "Snake!", "Get rekt!", "Peek-a-boo!", "Shoutout til Hytt&Pine!", "Psyched!", "Control is an illusion.", "Aldri gå i deg sjølv", "Harambe did nothing wrong!"}
         activeEffect = -1
-        MsgBox(msg(Convert.ToInt32(Rnd() * (msg.Length - 1))), )
+        MsgBox(msg(Convert.ToInt32(Rnd() * (msg.Length - 1))), vbOKOnly, "HURRY")
     End Sub
 End Class

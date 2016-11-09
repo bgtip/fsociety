@@ -16,7 +16,7 @@ Public Class Form1
 
     'Viser melding når spelet avsluttast
     Private Sub OnApplicationExit(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Closing
-        MsgBox("Thanks for playing!")
+        MsgBox("Thank you for playing!", vbOKOnly, "A message")
         Application.Exit()
     End Sub
 
@@ -46,7 +46,7 @@ Public Class Form1
         If game.lost Then
             Ticker.Enabled = False
             sound.playSound("sound/fx/oneshot/lose.wav", "soundeffects")
-            MsgBox("Du tapte!!!")
+            MsgBox("You lost!", vbOKOnly, "LOST")
             Button1.Enabled = True
             Button2.Enabled = True
         End If
@@ -82,7 +82,7 @@ Public Class Form1
         If game.effectChance < 1 Then
             Form6.Show()
         Else
-            MsgBox("You cannot submit your highscore in easy mode!")
+            MsgBox("You cannot submit your highscore in easy mode!", vbOKOnly, "Whooops")
         End If
     End Sub
 End Class
