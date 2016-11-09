@@ -33,6 +33,6 @@
 
     'Åpner en nettside med scores i default browser
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Process.Start("http://org.ntnu.no/fsociety27/game/score/score.php")
+        Process.Start("http://scoreboard.fsociety27.net")
     End Sub
 End Class
